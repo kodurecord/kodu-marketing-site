@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Request Access | Kodu</title>
+    <meta
+      name="description"
+      content="Request access to Kodu, the private living record of your home."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header site-header--light">
+      <div class="shell site-header__inner">
+        <a class="brand" href="./index.html" aria-label="Kodu home">
+          <span class="brand__mark">K</span>
+          <span class="brand__text">
+            <span class="brand__name">Kodu</span>
+            <span class="brand__meta">Private home record</span>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#why-kodu">Why Kodu exists</a>
+          <a href="./request-access.html" class="nav-cta">Request access</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="section section--page-top">
+      <div class="shell two-column">
+        <article class="panel">
+          <p class="eyebrow">Access request</p>
+          <h1>Request access to your home’s private record.</h1>
+          <p class="panel__body">
+            Tell us a little about what brought you here. We’ll use this to manage early access and
+            shape the first-memory experience inside Kodu.
+          </p>
+
+          <div class="list-block list-block--compact">
+            <div class="list-row"><span>01</span><p>Ask for access because you want the record to make sense.</p></div>
+            <div class="list-row"><span>02</span><p>We save your place as Kodu opens access in stages.</p></div>
+            <div class="list-row"><span>03</span><p>When access is ready, we point you to the next step for your home.</p></div>
+          </div>
+        </article>
+
+        <article class="panel panel--form">
+          <p class="eyebrow">What happened in your home?</p>
+          <h2>Start with what brought you here.</h2>
+
+          <form class="access-form" id="access-form" novalidate>
+            <div class="form-field">
+              <label for="firstName">First name *</label>
+              <input id="firstName" name="firstName" type="text" autocomplete="given-name" placeholder="Avery" />
+              <p class="field-error" id="firstName-error" role="alert"></p>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email *</label>
+              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" />
+              <p class="field-hint">We’ll only use this for access updates and Kodu-related follow-up.</p>
+              <p class="field-error" id="email-error" role="alert"></p>
+            </div>
+
+            <div class="form-field">
+              <label for="homeownerStatus">Homeowner status *</label>
+              <select id="homeownerStatus" name="homeownerStatus">
+                <option value="">Select one</option>
+                <option value="homeowner">homeowner</option>
+                <option value="buying soon">buying soon</option>
+                <option value="selling soon">selling soon</option>
+                <option value="real estate professional">real estate professional</option>
+                <option value="contractor">contractor</option>
+                <option value="other">other</option>
+              </select>
+              <p class="field-error" id="homeownerStatus-error" role="alert"></p>
+            </div>
+
+            <div class="form-field">
+              <label for="interest">What made you interested? *</label>
+              <textarea id="interest" name="interest" rows="5" placeholder="I’ve had to go looking for repair details and warranties more than once, and I want one private place where the story of the house stays clear."></textarea>
+              <p class="field-error" id="interest-error" role="alert"></p>
+            </div>
+
+            <div class="form-field">
+              <label for="cityState">Optional city/state</label>
+              <input id="cityState" name="cityState" type="text" autocomplete="address-level2" placeholder="Greenville, SC" />
+              <p class="field-error" id="cityState-error" role="alert"></p>
+            </div>
+
+            <div class="form-field">
+              <label for="concern">Optional property concern</label>
+              <select id="concern" name="concern">
+                <option value="">Select one</option>
+                <option value="repairs">repairs</option>
+                <option value="warranties">warranties</option>
+                <option value="insurance proof">insurance proof</option>
+                <option value="selling">selling</option>
+                <option value="maintenance">maintenance</option>
+                <option value="documents">documents</option>
+                <option value="other">other</option>
+              </select>
+            </div>
+
+            <div class="form-status form-status--error" id="form-status" hidden>
+              Please fix the highlighted fields and try again.
+            </div>
+
+            <div class="form-actions">
+              <button class="button button--primary" type="submit">Request access</button>
+            </div>
+
+            <p class="form-footnote">
+              By submitting, you agree to receive Kodu access updates and product follow-up.
+              This form does not publish your property or turn your information into a public listing.
+            </p>
+          </form>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell site-footer__inner">
+        <p>Your home has a memory. Kodu helps you preserve it.</p>
+        <div class="site-footer__links">
+          <a href="./index.html">Home</a>
+          <a href="./request-access.html">Request access</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
