@@ -1,63 +1,148 @@
+<!--
+  Kodu — confirmation.html
+  Reached only after a successful form submission.
+  The form on request-access.html should redirect here on success (HTTP 302).
+-->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your access request has been received. | Kodu</title>
-    <meta
-      name="description"
-      content="Your Kodu access request has been received."
-    />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Request received — Kodu Record</title>
+<meta name="description" content="Your Kodu access request has been received. We’ll be in touch shortly with next steps for your property." />
+<meta name="robots" content="noindex" />
 
-    <header class="site-header site-header--light">
-      <div class="shell site-header__inner">
-        <a class="brand" href="./index.html" aria-label="Kodu home">
-          <span class="brand__mark">K</span>
-          <span class="brand__text">
-            <span class="brand__name">Kodu</span>
-            <span class="brand__meta">Private home record</span>
-          </span>
-        </a>
-      </div>
-    </header>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-    <main id="main-content" class="section section--page-top">
-      <div class="shell confirmation-shell">
-        <article class="panel panel--confirmation">
-          <span class="chip chip--trust">Access request received</span>
-          <h1>Your access request has been received.</h1>
-          <p class="panel__body">
-            Thank you for requesting access to Kodu. We’ll review your request as we open access carefully for homeowners who want a private, lasting record of their property.
-          </p>
+<!-- ============================================
+     NAV
+     ============================================ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html" aria-label="Kodu home">
+      <span class="nav-wordmark">Kodu <span class="accent">Record</span></span>
+    </a>
 
-          <div class="list-block list-block--compact">
-            <div class="list-row"><span>01</span><p>Watch for an email from Kodu about your request.</p></div>
-            <div class="list-row"><span>02</span><p>Start thinking about the first memory you’d want your home to keep.</p></div>
-            <div class="list-row"><span>03</span><p>When your access is approved, you’ll be guided into creating your home’s first private record.</p></div>
-          </div>
+    <div class="nav-prop" aria-disabled="true" title="Property selector — preview only">
+      <svg class="house" viewBox="0 0 24 24"><path d="M4 11 L12 4 L20 11 V20 H4 Z"/><line x1="9" y1="20" x2="9" y2="14"/><line x1="15" y1="20" x2="15" y2="14"/></svg>
+      <span>2707 Trotter Park Ln</span>
+      <svg class="caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
 
-          <div class="hero__actions confirmation-actions">
-            <a class="button button--primary" href="./index.html">Back to home</a>
-            <a class="button button--secondary-light" href="./request-access.html">Request access for another property</a>
-          </div>
-        </article>
-      </div>
-    </main>
+    <div class="nav-links">
+      <a href="index.html#overview">Overview</a>
+      <a href="index.html#vault">Blueprint</a>
+      <a href="index.html#systems">Systems</a>
+      <a href="index.html#timeline">Timeline</a>
+      <a href="index.html#transfer">Transfer</a>
+    </div>
 
-    <footer class="site-footer">
-      <div class="shell site-footer__inner">
-        <p>Kodu is built for private home records — not public property search.</p>
-        <div class="site-footer__links">
-          <a href="./index.html">Home</a>
-          <a href="./request-access.html">Request access</a>
-        </div>
-      </div>
-    </footer>
+    <div class="nav-right">
+      <a href="working-example.html" class="btn btn-neutral btn-sm">Sample property record</a>
+    </div>
+  </div>
+</nav>
 
-    <script src="./script.js"></script>
-  </body>
+<!-- ============================================
+     CONFIRMATION
+     ============================================ -->
+<section class="confirm-page">
+  <div class="confirm-inner">
+
+    <div class="confirm-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24">
+        <polyline points="5 12 10 17 19 7"/>
+      </svg>
+    </div>
+
+    <div class="confirm-eyebrow">Request received</div>
+    <h1 class="confirm-title">Your access request has been received.</h1>
+    <p class="confirm-sub">
+      Thank you. A member of the Kodu team will review your request and reach out by email with next steps for your property.
+    </p>
+
+    <div class="confirm-detail">
+      <h4>What happens next</h4>
+      <ul>
+        <li>We review every request individually &mdash; usually within a few days.</li>
+        <li>You&rsquo;ll receive an email at the address you provided when your record is ready to open.</li>
+        <li>Your information stays private. No marketing lists, no third-party sharing.</li>
+      </ul>
+    </div>
+
+    <div class="confirm-actions">
+      <a href="index.html" class="btn btn-primary btn-lg">Back to home</a>
+      <a href="working-example.html" class="btn btn-outline btn-lg">Explore a sample property record</a>
+    </div>
+
+    <p style="margin-top: 28px; font-size: 12.5px; color: var(--slate-2);">
+      Questions in the meantime? Email <a href="mailto:hello@kodurecord.com" style="color: var(--brand); text-decoration: none;">hello@kodurecord.com</a>.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="nav-wordmark">Kodu <span class="accent">Record</span></span>
+      <p class="foot-statement">The working record of your home &mdash; private to the owner, continuous across owners, built to preserve the property&rsquo;s history over time.</p>
+    </div>
+
+    <div class="foot-col">
+      <h4>Record</h4>
+      <ul>
+        <li><a href="index.html#vault">Blueprint</a></li>
+        <li><a href="index.html#vault">Vault</a></li>
+        <li><a href="index.html#systems">Systems</a></li>
+        <li><a href="index.html#timeline">Timeline</a></li>
+        <li><a href="index.html#transfer">Transfer</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="working-example.html">Sample property record</a></li>
+        <li><a href="request-access.html">Request access</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Built for</h4>
+      <ul>
+        <li><a href="request-access.html">New homeowners</a></li>
+        <li><a href="request-access.html">Long-term owners</a></li>
+        <li><a href="request-access.html">Inherited homes</a></li>
+        <li><a href="request-access.html">Owners selling soon</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Kodu</h4>
+      <ul>
+        <li><a href="mailto:hello@kodurecord.com">Contact</a></li>
+        <li><a href="request-access.html">Request access</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot-base">
+    <div>© Kodu, Inc. &middot; 2026</div>
+    <div class="foot-base-links">
+      <a href="mailto:hello@kodurecord.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="analytics.js"></script>
+<script src="script.js"></script>
+</body>
 </html>

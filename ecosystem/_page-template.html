@@ -1,0 +1,49 @@
+<!--
+  KODU ECOSYSTEM — CANONICAL PAGE TEMPLATE
+  This is the structural template every Batch 1 page is built from.
+  Each page replaces the bracketed [TOKENS] with page-specific content
+  but inherits the navigation, footer, sample-bridge, and styles
+  unchanged. Do not add page-specific CSS to individual files —
+  extend styles.css and apply the new class names instead.
+
+  TOKEN GLOSSARY
+  [PAGE_TITLE]            — SEO <title> tag content
+  [META_DESCRIPTION]      — meta name="description" content
+  [CANONICAL_URL]         — canonical URL for this page
+  [RETARGET_TAG]          — retargeting bucket (see retargeting-map.md)
+  [EYEBROW]               — section label (e.g. "Home Records")
+  [H1]                    — page title (homeowner-facing)
+  [LEDE]                  — opening lede paragraph
+  [READING_TIME]          — e.g. "6 min read"
+  [LAST_UPDATED]          — e.g. "May 2026"
+  [CATEGORY]              — e.g. "Records"
+  [ARTICLE_BODY]          — full article HTML
+  [SAMPLE_BRIDGE_HEADLINE] — sample-record bridge headline
+  [SAMPLE_BRIDGE_BODY]    — sample-record bridge body copy
+  [RELATED_LINKS_BLOCK]   — 4 related cards
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>[PAGE_TITLE]</title>
+<meta name="description" content="[META_DESCRIPTION]" />
+<link rel="canonical" href="[CANONICAL_URL]" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css" />
+</head>
+<body data-retarget="[RETARGET_TAG]">
+
+  <!-- NAV (canonical, inherited from homepage) -->
+  <!-- FOOTER (canonical, inherited from homepage) -->
+
+  <!-- See actual page files for the rendered version. -->
+
+<script src="../script.js"></script>
+</body>
+</html>
