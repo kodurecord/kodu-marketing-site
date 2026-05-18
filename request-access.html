@@ -1,138 +1,279 @@
+<!--
+  Kodu — request-access.html
+  Pilot access request form. Submits via fetch() to the Cloudflare Worker
+  endpoint configured below.
+
+  CONFIG (dev): set the Worker URL on the <form data-endpoint="..."> attribute.
+  Replace the placeholder when you deploy.
+-->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Request Access | Kodu</title>
-    <meta
-      name="description"
-      content="Request access to Kodu, the private living record of your home."
-    />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Request access — Kodu Record</title>
+<meta name="description" content="Kodu is currently in private access. Request a spot and we’ll be in touch with next steps for your property." />
 
-    <header class="site-header site-header--light">
-      <div class="shell site-header__inner">
-        <a class="brand" href="./index.html" aria-label="Kodu home">
-          <span class="brand__mark">K</span>
-          <span class="brand__text">
-            <span class="brand__name">Kodu</span>
-            <span class="brand__meta">Private home record</span>
-          </span>
-        </a>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-        <nav class="site-nav" aria-label="Primary navigation">
-          <a href="./index.html">Home</a>
-          <a href="./index.html#why-kodu">Why Kodu exists</a>
-          <a href="./request-access.html" class="nav-cta">Request access</a>
-        </nav>
+<!-- ============================================
+     NAV
+     ============================================ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html" aria-label="Kodu home">
+      <span class="nav-wordmark">Kodu <span class="accent">Record</span></span>
+    </a>
+
+    <div class="nav-prop" aria-disabled="true" title="Property selector — preview only">
+      <svg class="house" viewBox="0 0 24 24"><path d="M4 11 L12 4 L20 11 V20 H4 Z"/><line x1="9" y1="20" x2="9" y2="14"/><line x1="15" y1="20" x2="15" y2="14"/></svg>
+      <span>2707 Trotter Park Ln</span>
+      <svg class="caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html#overview">Overview</a>
+      <a href="index.html#vault">Blueprint</a>
+      <a href="index.html#systems">Systems</a>
+      <a href="index.html#timeline">Timeline</a>
+      <a href="index.html#transfer">Transfer</a>
+    </div>
+
+    <div class="nav-right">
+      <a href="working-example.html" class="btn btn-neutral btn-sm">Sample property record</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================
+     FORM
+     ============================================ -->
+<section class="form-page">
+  <div class="form-page-inner">
+    <nav class="form-breadcrumb reveal" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <svg viewBox="0 0 12 12"><polyline points="4 2 8 6 4 10"/></svg>
+      <span>Request access</span>
+    </nav>
+
+    <div class="reveal reveal-d1">
+      <div class="form-eyebrow">Private access</div>
+      <h1 class="form-title">Request access to Kodu.</h1>
+      <p class="form-sub">
+        Kodu is currently working with a small group of homeowners. Tell us a little about your property and we&rsquo;ll be in touch with next steps.
+      </p>
+    </div>
+
+    <!--
+      Status notice region. Hidden by default. The script reveals this for
+      validation errors, network failures, and rate-limit responses. On success,
+      the script redirects to confirmation.html rather than showing a message.
+    -->
+    <div
+      id="form-notice"
+      class="form-side-note reveal reveal-d2"
+      hidden
+      role="status"
+      aria-live="polite"
+      style="border-color: rgba(212, 148, 52, 0.3); background: var(--pending-soft); margin-bottom: 24px; margin-top: 0;"
+    >
+      <svg viewBox="0 0 24 24" style="stroke: var(--pending-2);"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="13"/><circle cx="12" cy="16" r="0.5" fill="currentColor" stroke="none"/></svg>
+      <div class="t" id="form-notice-text">
+        Something went wrong. Please try again, or email <a href="mailto:hello@kodurecord.com">hello@kodurecord.com</a>.
       </div>
-    </header>
+    </div>
 
-    <main id="main-content" class="section section--page-top">
-      <div class="shell two-column">
-        <article class="panel">
-          <p class="eyebrow">Access request</p>
-          <h1>Request access to your home’s private record.</h1>
-          <p class="panel__body">
-            Tell us a little about what brought you here. We’ll use this to manage early access and
-            shape the first-memory experience inside Kodu.
-          </p>
+    <!--
+      data-endpoint: full Worker URL. Replace with your deployed Worker.
+        Examples:
+          https://kodu-access.<your-account>.workers.dev
+          https://access.kodurecord.com  (with a custom Worker route)
 
-          <div class="list-block list-block--compact">
-            <div class="list-row"><span>01</span><p>Ask for access because you want the record to make sense.</p></div>
-            <div class="list-row"><span>02</span><p>We save your place as Kodu opens access in stages.</p></div>
-            <div class="list-row"><span>03</span><p>When access is ready, we point you to the next step for your home.</p></div>
-          </div>
-        </article>
-
-        <article class="panel panel--form">
-          <p class="eyebrow">What happened in your home?</p>
-          <h2>Start with what brought you here.</h2>
-
-          <form class="access-form" id="access-form" novalidate>
-            <div class="form-field">
-              <label for="firstName">First name *</label>
-              <input id="firstName" name="firstName" type="text" autocomplete="given-name" placeholder="Avery" />
-              <p class="field-error" id="firstName-error" role="alert"></p>
-            </div>
-
-            <div class="form-field">
-              <label for="email">Email *</label>
-              <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" />
-              <p class="field-hint">We’ll only use this for access updates and Kodu-related follow-up.</p>
-              <p class="field-error" id="email-error" role="alert"></p>
-            </div>
-
-            <div class="form-field">
-              <label for="homeownerStatus">Homeowner status *</label>
-              <select id="homeownerStatus" name="homeownerStatus">
-                <option value="">Select one</option>
-                <option value="homeowner">homeowner</option>
-                <option value="buying soon">buying soon</option>
-                <option value="selling soon">selling soon</option>
-                <option value="real estate professional">real estate professional</option>
-                <option value="contractor">contractor</option>
-                <option value="other">other</option>
-              </select>
-              <p class="field-error" id="homeownerStatus-error" role="alert"></p>
-            </div>
-
-            <div class="form-field">
-              <label for="interest">What made you interested? *</label>
-              <textarea id="interest" name="interest" rows="5" placeholder="I’ve had to go looking for repair details and warranties more than once, and I want one private place where the story of the house stays clear."></textarea>
-              <p class="field-error" id="interest-error" role="alert"></p>
-            </div>
-
-            <div class="form-field">
-              <label for="cityState">Optional city/state</label>
-              <input id="cityState" name="cityState" type="text" autocomplete="address-level2" placeholder="Greenville, SC" />
-              <p class="field-error" id="cityState-error" role="alert"></p>
-            </div>
-
-            <div class="form-field">
-              <label for="concern">Optional property concern</label>
-              <select id="concern" name="concern">
-                <option value="">Select one</option>
-                <option value="repairs">repairs</option>
-                <option value="warranties">warranties</option>
-                <option value="insurance proof">insurance proof</option>
-                <option value="selling">selling</option>
-                <option value="maintenance">maintenance</option>
-                <option value="documents">documents</option>
-                <option value="other">other</option>
-              </select>
-            </div>
-
-            <div class="form-status form-status--error" id="form-status" hidden>
-              Please fix the highlighted fields and try again.
-            </div>
-
-            <div class="form-actions">
-              <button class="button button--primary" type="submit">Request access</button>
-            </div>
-
-            <p class="form-footnote">
-              By submitting, you agree to receive Kodu access updates and product follow-up.
-              This form does not publish your property or turn your information into a public listing.
-            </p>
-          </form>
-        </article>
+      Until this is set to a real URL (anything that's not the placeholder
+      below), the script blocks submission and shows an inline notice rather
+      than pretending the form went through.
+    -->
+    <form
+      id="request-access-form"
+      class="form-card reveal reveal-d2"
+      method="POST"
+      novalidate
+      data-endpoint="https://CHANGE-ME.workers.dev"
+    >
+      <div class="form-field">
+        <label class="form-label" for="full-name">Full name<span class="req">*</span></label>
+        <input
+          class="form-input"
+          type="text"
+          id="full-name"
+          name="full_name"
+          autocomplete="name"
+          required
+          placeholder="Jane Whitford"
+          minlength="2"
+          maxlength="120"
+        />
       </div>
-    </main>
 
-    <footer class="site-footer">
-      <div class="shell site-footer__inner">
-        <p>Your home has a memory. Kodu helps you preserve it.</p>
-        <div class="site-footer__links">
-          <a href="./index.html">Home</a>
-          <a href="./request-access.html">Request access</a>
+      <div class="form-field">
+        <label class="form-label" for="email">Email<span class="req">*</span></label>
+        <input
+          class="form-input"
+          type="email"
+          id="email"
+          name="email"
+          autocomplete="email"
+          required
+          placeholder="jane@example.com"
+          maxlength="254"
+        />
+      </div>
+
+      <div class="form-field">
+        <label class="form-label" for="property-city-state">Property city &amp; state<span class="req">*</span></label>
+        <input
+          class="form-input"
+          type="text"
+          id="property-city-state"
+          name="property_city_state"
+          autocomplete="address-level2"
+          required
+          placeholder="Greenville, SC"
+          maxlength="200"
+        />
+      </div>
+
+      <div class="form-field">
+        <label class="form-label" for="homeowner-status">Homeowner status<span class="req">*</span></label>
+        <select
+          class="form-select"
+          id="homeowner-status"
+          name="homeowner_status"
+          required
+        >
+          <option value="" disabled selected>Select one</option>
+          <option value="new_owner">New homeowner (under 2 years)</option>
+          <option value="long_term">Long-term homeowner (2+ years)</option>
+          <option value="inherited">Inherited the home</option>
+          <option value="selling_soon">Planning to sell within 12 months</option>
+          <option value="multi_property">Multi-property owner</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label class="form-label" for="interest-reason">What brought you to Kodu?<span class="req">*</span></label>
+        <select
+          class="form-select"
+          id="interest-reason"
+          name="interest_reason"
+          required
+        >
+          <option value="" disabled selected>Select one</option>
+          <option value="search">Web search</option>
+          <option value="referral">Friend or referral</option>
+          <option value="social">Social media</option>
+          <option value="press">Press or article</option>
+          <option value="real_estate">Real estate professional</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label class="form-label" for="notes">Anything we should know about your property?</label>
+        <div class="form-help">Optional &middot; e.g. inherited the home, mid-renovation, selling next spring.</div>
+        <textarea
+          class="form-textarea"
+          id="notes"
+          name="notes"
+          rows="4"
+          placeholder="Optional"
+          maxlength="2000"
+        ></textarea>
+      </div>
+
+      <div class="form-footer">
+        <p class="form-consent">
+          By requesting access you agree to be contacted by Kodu about your property record. We won&rsquo;t sell or share your details. See our <a href="mailto:hello@kodurecord.com">contact</a> for any questions.
+        </p>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-lg" id="form-submit">Request access</button>
+          <a href="index.html" class="btn btn-neutral btn-lg">Back to home</a>
         </div>
       </div>
-    </footer>
+    </form>
 
-    <script src="./script.js"></script>
-  </body>
+    <div class="form-side-note reveal reveal-d3">
+      <svg viewBox="0 0 24 24"><path d="M12 2 L20 6 V12 C20 17 16 21 12 22 C8 21 4 17 4 12 V6 Z"/><polyline points="9 12 11 14 15 10"/></svg>
+      <div class="t">
+        <strong>Private by default.</strong> Your information is used only to evaluate access and respond to you directly. No marketing lists, no third-party sharing.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="nav-wordmark">Kodu <span class="accent">Record</span></span>
+      <p class="foot-statement">The working record of your home &mdash; private to the owner, continuous across owners, built to preserve the property&rsquo;s history over time.</p>
+    </div>
+
+    <div class="foot-col">
+      <h4>Record</h4>
+      <ul>
+        <li><a href="index.html#vault">Blueprint</a></li>
+        <li><a href="index.html#vault">Vault</a></li>
+        <li><a href="index.html#systems">Systems</a></li>
+        <li><a href="index.html#timeline">Timeline</a></li>
+        <li><a href="index.html#transfer">Transfer</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="working-example.html">Sample property record</a></li>
+        <li><a href="request-access.html">Request access</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Built for</h4>
+      <ul>
+        <li><a href="request-access.html">New homeowners</a></li>
+        <li><a href="request-access.html">Long-term owners</a></li>
+        <li><a href="request-access.html">Inherited homes</a></li>
+        <li><a href="request-access.html">Owners selling soon</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Kodu</h4>
+      <ul>
+        <li><a href="mailto:hello@kodurecord.com">Contact</a></li>
+        <li><a href="request-access.html">Request access</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot-base">
+    <div>© Kodu, Inc. &middot; 2026</div>
+    <div class="foot-base-links">
+      <a href="mailto:hello@kodurecord.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="analytics.js"></script>
+<script src="script.js"></script>
+</body>
 </html>
