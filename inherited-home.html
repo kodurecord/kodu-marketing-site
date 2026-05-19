@@ -1,0 +1,708 @@
+<!--
+  Kodu — inherited-home.html
+  ─────────────────────────────────────────────────────────────────
+  The first gold-standard segment page in the "Built for" track.
+
+  Inherits production chrome verbatim (nav, footer, script tags).
+  Uses the .we-* sub-page composition family (Type B). Seven
+  .we-section blocks mapped to the canonical seven-layer Kodu
+  record model, each populated with the realistic sparse starting
+  state of an inherited home: mostly empty Vault, partial Blueprint,
+  Systems with unknowns, two-event Timeline, three-card Guidance,
+  Transfer-ready future-tense.
+
+  Loads canonical styles.css and script.js without modification.
+  No embedded <style> block. No parallel CSS system.
+  ─────────────────────────────────────────────────────────────────
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Built for inherited homes — Kodu Record</title>
+<meta name="description" content="You inherited the home. Not the history. Kodu helps you begin with what you know, organize what you find, and build a private record the property can keep." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============================================
+     NAV
+     ============================================ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html" aria-label="Kodu home">
+      <span class="nav-wordmark">Kodu <span class="accent">Record</span></span>
+    </a>
+
+    <div class="nav-prop" aria-disabled="true" title="Property selector — preview only">
+      <svg class="house" viewBox="0 0 24 24"><path d="M4 11 L12 4 L20 11 V20 H4 Z"/><line x1="9" y1="20" x2="9" y2="14"/><line x1="15" y1="20" x2="15" y2="14"/></svg>
+      <span>2707 Trotter Park Ln</span>
+      <svg class="caret" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html#overview">Overview</a>
+      <a href="index.html#vault">Blueprint</a>
+      <a href="index.html#systems">Systems</a>
+      <a href="index.html#timeline">Timeline</a>
+      <a href="index.html#transfer">Transfer</a>
+    </div>
+
+    <div class="nav-right">
+      <a href="working-example.html" class="btn btn-neutral btn-sm">Sample property record</a>
+      <a href="request-access.html" class="btn btn-primary btn-sm">Request access</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<section class="we-hero">
+  <div class="we-hero-inner">
+    <nav class="we-breadcrumb reveal" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <svg viewBox="0 0 12 12"><polyline points="4 2 8 6 4 10"/></svg>
+      <span>Built for inherited homes</span>
+    </nav>
+
+    <div class="we-hero-grid">
+      <div class="we-hero-text">
+        <div class="we-eyebrow reveal">Built for inherited homes</div>
+        <h1 class="we-title reveal reveal-d1">You inherited the home. Not the history.</h1>
+        <p class="we-sub reveal reveal-d1">Kodu helps you begin with what you know, organize what you find, and build a private record the property can keep.</p>
+
+        <div class="cta-row reveal reveal-d2">
+          <a href="request-access.html" class="btn btn-primary btn-lg">Request access</a>
+          <a href="working-example.html" class="btn btn-outline btn-lg">Explore a sample property record</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     STEP 1 — OVERVIEW
+     ============================================ -->
+<section class="we-section" id="overview">
+  <div class="we-section-inner">
+    <div class="we-section-eyebrow reveal"><span class="num">01</span>Overview</div>
+    <h2 class="we-section-title reveal reveal-d1">The record opens with what the property already shows you.</h2>
+    <p class="we-section-sub reveal reveal-d1">Address, year built, the date the record opens &mdash; the spine that every later record attaches to, even when nothing else is yet in hand.</p>
+
+    <div class="meta-row reveal reveal-d2" style="margin: 0; padding: 28px 0 0; max-width: none;">
+      <div class="meta-item">
+        <span class="label">Property</span>
+        <span class="value">4118 Oak Street</span>
+      </div>
+      <div class="meta-item">
+        <span class="label">Built</span>
+        <span class="value">1974</span>
+      </div>
+      <div class="meta-item">
+        <span class="label">Record opened</span>
+        <span class="value">Today</span>
+      </div>
+      <div class="meta-item">
+        <span class="label">Documentation</span>
+        <span class="value">Beginning</span>
+      </div>
+      <div class="meta-item">
+        <span class="label">Continuity</span>
+        <span class="value">Day 1</span>
+      </div>
+      <div class="meta-item">
+        <span class="label">Transfer-ready</span>
+        <span class="value">Not yet</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     STEP 2 — BLUEPRINT
+     ============================================ -->
+<section class="we-section" id="blueprint">
+  <div class="we-section-inner">
+    <div class="we-section-eyebrow reveal"><span class="num">02</span>Blueprint</div>
+    <h2 class="we-section-title reveal reveal-d1">Map the house before you map its history.</h2>
+    <p class="we-section-sub reveal reveal-d1">The floor plan organizes everything that will be added. Each room holds what belongs to it &mdash; documented or not yet documented.</p>
+
+    <div class="explore-card reveal reveal-d2">
+      <div class="explore-head">
+        <div>
+          <div class="explore-h">Home Record</div>
+          <div class="explore-sub">4118 Oak Street &middot; private record</div>
+        </div>
+        <span class="preview-badge">Preview</span>
+      </div>
+
+      <div class="chips-row" style="margin-bottom: 24px;">
+        <span class="chip-status">1 record on file</span>
+        <span class="chip-status">10 areas awaiting documentation</span>
+        <span class="chip-status brand">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+          Record opened today
+        </span>
+      </div>
+
+      <div class="pill-tabs" role="tablist" aria-label="Record categories (preview only)">
+        <span class="pill-tab active"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>Rooms</span>
+        <span class="pill-tab"><svg viewBox="0 0 24 24"><path d="M9 3 H15 V8 H21 V14 H15 V21 H9 V14 H3 V8 H9 Z"/></svg>Plumbing</span>
+        <span class="pill-tab"><svg viewBox="0 0 24 24"><polyline points="13 2 4 14 11 14 10 22 20 9 13 9 13 2"/></svg>Electrical</span>
+        <span class="pill-tab"><svg viewBox="0 0 24 24"><path d="M3 12 L12 4 L21 12"/><line x1="12" y1="4" x2="12" y2="20"/></svg>Roof</span>
+        <span class="pill-tab"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"/><line x1="4" y1="12" x2="20" y2="12"/></svg>Exterior</span>
+        <span class="pill-tab">More <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span>
+      </div>
+
+      <div class="floorplan">
+        <div class="floorplan-zoom" aria-hidden="true">
+          <button type="button" tabindex="-1">+</button>
+          <button type="button" tabindex="-1">−</button>
+        </div>
+
+        <svg class="floorplan-svg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet">
+          <rect x="160" y="60" width="500" height="280" fill="none" stroke="#4a5468" stroke-width="2"/>
+
+          <line x1="340" y1="60" x2="340" y2="180" stroke="#6b7587" stroke-width="1.6"/>
+          <line x1="160" y1="180" x2="500" y2="180" stroke="#6b7587" stroke-width="1.6"/>
+          <line x1="450" y1="60" x2="450" y2="180" stroke="#6b7587" stroke-width="1.6"/>
+          <line x1="340" y1="180" x2="340" y2="340" stroke="#6b7587" stroke-width="1.6"/>
+          <line x1="500" y1="180" x2="500" y2="340" stroke="#6b7587" stroke-width="1.6"/>
+          <line x1="580" y1="180" x2="580" y2="280" stroke="#6b7587" stroke-width="1.6"/>
+          <line x1="500" y1="280" x2="660" y2="280" stroke="#6b7587" stroke-width="1.6"/>
+          <line x1="240" y1="240" x2="340" y2="240" stroke="#6b7587" stroke-width="1.6"/>
+
+          <line x1="340" y1="120" x2="340" y2="150" stroke="#f1f3f7" stroke-width="3"/>
+          <line x1="280" y1="180" x2="310" y2="180" stroke="#f1f3f7" stroke-width="3"/>
+          <line x1="500" y1="240" x2="500" y2="270" stroke="#f1f3f7" stroke-width="3"/>
+          <line x1="340" y1="280" x2="340" y2="310" stroke="#f1f3f7" stroke-width="3"/>
+
+          <line x1="380" y1="340" x2="440" y2="340" stroke="#1a2333" stroke-width="3"/>
+
+          <text x="250" y="125" font-family="Inter" font-size="10" font-weight="600" letter-spacing="0.14em" fill="#5a6478" text-anchor="middle">PRIMARY</text>
+          <text x="250" y="140" font-family="Inter" font-size="10" font-weight="600" letter-spacing="0.14em" fill="#5a6478" text-anchor="middle">BEDROOM</text>
+          <text x="395" y="125" font-family="Inter" font-size="10" font-weight="600" letter-spacing="0.14em" fill="#5a6478" text-anchor="middle">BATH</text>
+          <text x="555" y="125" font-family="Inter" font-size="10" font-weight="600" letter-spacing="0.14em" fill="#5a6478" text-anchor="middle">LIVING ROOM</text>
+          <text x="620" y="245" font-family="Inter" font-size="10" font-weight="600" letter-spacing="0.14em" fill="#5a6478" text-anchor="middle">KITCHEN</text>
+          <text x="540" y="225" font-family="Inter" font-size="10" font-weight="600" letter-spacing="0.14em" fill="#5a6478" text-anchor="middle">DINING</text>
+          <text x="290" y="215" font-family="Inter" font-size="10" font-weight="600" letter-spacing="0.14em" fill="#5a6478" text-anchor="middle">BATH 2</text>
+          <text x="250" y="295" font-family="Inter" font-size="10" font-weight="600" letter-spacing="0.14em" fill="#5a6478" text-anchor="middle">BEDROOM 2</text>
+          <text x="420" y="245" font-family="Inter" font-size="10" font-weight="600" letter-spacing="0.14em" fill="#5a6478" text-anchor="middle">OFFICE</text>
+          <text x="420" y="310" font-family="Inter" font-size="10" font-weight="600" letter-spacing="0.14em" fill="#5a6478" text-anchor="middle">LAUNDRY</text>
+          <text x="555" y="320" font-family="Inter" font-size="10" font-weight="600" letter-spacing="0.14em" fill="#5a6478" text-anchor="middle">GARAGE</text>
+
+          <circle cx="555" cy="140" r="6" fill="#e8f1e6" stroke="#6fa56d" stroke-width="2"/>
+          <circle cx="620" cy="225" r="6" fill="#e8f1e6" stroke="#6fa56d" stroke-width="2"/>
+
+          <circle cx="250" cy="155" r="6" fill="#ffffff" stroke="#b4bbc8" stroke-width="2"/>
+          <circle cx="395" cy="140" r="6" fill="#ffffff" stroke="#b4bbc8" stroke-width="2"/>
+          <circle cx="540" cy="205" r="6" fill="#ffffff" stroke="#b4bbc8" stroke-width="2"/>
+          <circle cx="290" cy="230" r="6" fill="#ffffff" stroke="#b4bbc8" stroke-width="2"/>
+          <circle cx="250" cy="310" r="6" fill="#ffffff" stroke="#b4bbc8" stroke-width="2"/>
+          <circle cx="420" cy="225" r="6" fill="#ffffff" stroke="#b4bbc8" stroke-width="2"/>
+          <circle cx="420" cy="325" r="6" fill="#ffffff" stroke="#b4bbc8" stroke-width="2"/>
+          <circle cx="555" cy="305" r="6" fill="#ffffff" stroke="#b4bbc8" stroke-width="2"/>
+
+          <g transform="translate(200 80)" stroke="#8a93a4" stroke-width="0.8" fill="none">
+            <polygon points="0,-10 -3,-4 3,-4" fill="#5a6478"/>
+            <text x="0" y="-12" font-family="Inter" font-size="9" font-weight="600" fill="#8a93a4" text-anchor="middle" stroke="none">N</text>
+          </g>
+        </svg>
+
+        <div class="plan-legend">
+          <span class="plan-legend-item">
+            <span class="plan-legend-dot"></span>
+            Areas with records
+          </span>
+          <span class="plan-legend-item">
+            <span class="plan-legend-dot empty"></span>
+            Awaiting documentation
+          </span>
+        </div>
+      </div>
+
+      <div class="area-summary">
+        <div class="area-summary-block">
+          <div class="label">Selected area</div>
+          <div class="name">Living Room</div>
+          <div class="desc">The first room most owners walk through. A photograph and a date are enough to begin.</div>
+        </div>
+        <div class="area-summary-block">
+          <div class="label">Common records</div>
+          <div class="area-chips">
+            <span class="area-chip">Photograph</span>
+            <span class="area-chip">Window</span>
+            <span class="area-chip">Flooring</span>
+            <span class="area-chip">HVAC vent</span>
+          </div>
+        </div>
+        <div class="area-summary-block">
+          <div class="label">Why it matters</div>
+          <div class="desc">Inherited homes often have decades of work no one wrote down. Photographs are how that work re-enters the record.</div>
+        </div>
+        <div class="area-summary-block area-summary-action">
+          <div class="label">Add a record</div>
+          <a href="request-access.html" class="btn btn-outline btn-sm">+ Store a record</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     STEP 3 — VAULT
+     ============================================ -->
+<section class="we-section" id="vault">
+  <div class="we-section-inner">
+    <div class="we-section-eyebrow reveal"><span class="num">03</span>Vault</div>
+    <h2 class="we-section-title reveal reveal-d1">Most inherited records begin with one document.</h2>
+    <p class="we-section-sub reveal reveal-d1">The deed is almost always the first thing in hand. Everything else &mdash; warranties, permits, service histories &mdash; gets recovered or rebuilt over time.</p>
+
+    <div class="explore-card reveal reveal-d2" style="padding: 0;">
+      <div style="padding: 24px 28px; border-bottom: 1px solid var(--rule-soft); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;">
+        <div>
+          <div class="explore-h" style="font-size: 18px; margin-bottom: 4px;">Vault documents</div>
+          <div class="explore-sub">1 record on file &middot; 5 awaiting recovery</div>
+        </div>
+        <span class="preview-badge">Preview</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule-soft);">
+
+        <div style="background: var(--surface); padding: 18px 24px; display: flex; align-items: center; gap: 14px;">
+          <div style="width: 32px; height: 32px; border-radius: 7px; background: var(--brand-tint); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#1976d2" stroke-width="1.7"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </div>
+          <div style="min-width: 0; flex: 1;">
+            <div style="font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 2px;">Property deed &amp; survey</div>
+            <div style="font-size: 12.5px; color: var(--slate);">PDF &middot; 11 pages &middot; received at closing &middot; ownership</div>
+          </div>
+        </div>
+
+        <div style="background: var(--surface); padding: 18px 24px; display: flex; align-items: center; gap: 14px;">
+          <div style="width: 32px; height: 32px; border-radius: 7px; background: var(--bg-2); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#8a93a4" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="8" y1="8" x2="14" y2="8"/><line x1="8" y1="12" x2="13" y2="12"/></svg>
+          </div>
+          <div style="min-width: 0; flex: 1;">
+            <div style="font-size: 14px; font-weight: 600; color: var(--slate); margin-bottom: 2px;">Roof &mdash; awaiting documentation</div>
+            <div style="font-size: 12.5px; color: var(--slate-2);">Install date &amp; manufacturer unknown</div>
+          </div>
+        </div>
+
+        <div style="background: var(--surface); padding: 18px 24px; display: flex; align-items: center; gap: 14px;">
+          <div style="width: 32px; height: 32px; border-radius: 7px; background: var(--bg-2); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#8a93a4" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="8" y1="8" x2="14" y2="8"/><line x1="8" y1="12" x2="13" y2="12"/></svg>
+          </div>
+          <div style="min-width: 0; flex: 1;">
+            <div style="font-size: 14px; font-weight: 600; color: var(--slate); margin-bottom: 2px;">HVAC service history &mdash; awaiting recovery</div>
+            <div style="font-size: 12.5px; color: var(--slate-2);">Previous owner&rsquo;s technician may have records on file</div>
+          </div>
+        </div>
+
+        <div style="background: var(--surface); padding: 18px 24px; display: flex; align-items: center; gap: 14px;">
+          <div style="width: 32px; height: 32px; border-radius: 7px; background: var(--bg-2); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#8a93a4" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="8" y1="8" x2="14" y2="8"/><line x1="8" y1="12" x2="13" y2="12"/></svg>
+          </div>
+          <div style="min-width: 0; flex: 1;">
+            <div style="font-size: 14px; font-weight: 600; color: var(--slate); margin-bottom: 2px;">Building permit history &mdash; available from county</div>
+            <div style="font-size: 12.5px; color: var(--slate-2);">Most counties retain permits for 30+ years</div>
+          </div>
+        </div>
+
+        <div style="background: var(--surface); padding: 18px 24px; display: flex; align-items: center; gap: 14px;">
+          <div style="width: 32px; height: 32px; border-radius: 7px; background: var(--bg-2); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#8a93a4" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="8" y1="8" x2="14" y2="8"/><line x1="8" y1="12" x2="13" y2="12"/></svg>
+          </div>
+          <div style="min-width: 0; flex: 1;">
+            <div style="font-size: 14px; font-weight: 600; color: var(--slate); margin-bottom: 2px;">Original survey &mdash; awaiting recovery</div>
+            <div style="font-size: 12.5px; color: var(--slate-2);">Often included with closing documents, sometimes filed separately</div>
+          </div>
+        </div>
+
+        <div style="background: var(--surface); padding: 18px 24px; display: flex; align-items: center; gap: 14px;">
+          <div style="width: 32px; height: 32px; border-radius: 7px; background: var(--bg-2); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#8a93a4" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="8" y1="8" x2="14" y2="8"/><line x1="8" y1="12" x2="13" y2="12"/></svg>
+          </div>
+          <div style="min-width: 0; flex: 1;">
+            <div style="font-size: 14px; font-weight: 600; color: var(--slate); margin-bottom: 2px;">Appliance manuals &amp; serial numbers</div>
+            <div style="font-size: 12.5px; color: var(--slate-2);">Data plates are still on the units &mdash; photograph and file</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     STEP 4 — SYSTEMS
+     ============================================ -->
+<section class="we-section" id="systems">
+  <div class="we-section-inner">
+    <div class="we-section-eyebrow reveal"><span class="num">04</span>Systems</div>
+    <h2 class="we-section-title reveal reveal-d1">Identify the systems. Document them as you find them.</h2>
+    <p class="we-section-sub reveal reveal-d1">Every major system in the home is still there &mdash; install dates, warranties, and service history just haven&rsquo;t been written down yet. Most of what&rsquo;s missing can be recovered.</p>
+
+    <div class="systems-row reveal reveal-d2">
+
+      <div class="sys-card">
+        <div class="sys-card-head">
+          <div class="sys-card-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 5 L12 12 L17 14"/></svg>
+          </div>
+          <div class="sys-card-status warn">Age unknown</div>
+        </div>
+        <div>
+          <div class="sys-card-name">HVAC</div>
+          <div class="sys-card-sub">Brand visible on data plate &middot; install date pending</div>
+        </div>
+        <div class="sys-card-meta">
+          <div class="sys-card-meta-item">
+            <div class="l">Last service</div>
+            <div class="v">Unknown</div>
+          </div>
+          <div class="sys-card-meta-item">
+            <div class="l">Warranty</div>
+            <div class="v">Pending</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sys-card">
+        <div class="sys-card-head">
+          <div class="sys-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 12 L12 4 L20 12"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+          </div>
+          <div class="sys-card-status warn">Age unknown</div>
+        </div>
+        <div>
+          <div class="sys-card-name">Roof</div>
+          <div class="sys-card-sub">Asphalt shingle &middot; condition observable from ground</div>
+        </div>
+        <div class="sys-card-meta">
+          <div class="sys-card-meta-item">
+            <div class="l">Installed</div>
+            <div class="v">Unknown</div>
+          </div>
+          <div class="sys-card-meta-item">
+            <div class="l">Permit</div>
+            <div class="v">Check county</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sys-card">
+        <div class="sys-card-head">
+          <div class="sys-card-icon">
+            <svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="1"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+          </div>
+          <div class="sys-card-status warn">Partial</div>
+        </div>
+        <div>
+          <div class="sys-card-name">Water heater</div>
+          <div class="sys-card-sub">A.O. Smith &middot; serial readable on tank</div>
+        </div>
+        <div class="sys-card-meta">
+          <div class="sys-card-meta-item">
+            <div class="l">Serial</div>
+            <div class="v">AS1419843</div>
+          </div>
+          <div class="sys-card-meta-item">
+            <div class="l">Installed</div>
+            <div class="v">Decodable</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sys-card">
+        <div class="sys-card-head">
+          <div class="sys-card-icon">
+            <svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+          </div>
+          <div class="sys-card-status warn">Labels needed</div>
+        </div>
+        <div>
+          <div class="sys-card-name">Electrical panel</div>
+          <div class="sys-card-sub">Square D &middot; 100A &middot; original to the home</div>
+        </div>
+        <div class="sys-card-meta">
+          <div class="sys-card-meta-item">
+            <div class="l">Circuits</div>
+            <div class="v">0 of 24 labeled</div>
+          </div>
+          <div class="sys-card-meta-item">
+            <div class="l">Inspect</div>
+            <div class="v">Recommended</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     STEP 5 — TIMELINE
+     ============================================ -->
+<section class="we-section" id="timeline">
+  <div class="we-section-inner">
+    <div class="we-section-eyebrow reveal"><span class="num">05</span>Timeline</div>
+    <h2 class="we-section-title reveal reveal-d1">The timeline begins on the day the record opens.</h2>
+    <p class="we-section-sub reveal reveal-d1">Two entries on day one. Everything else &mdash; the work the previous owner did, the systems that were replaced, the projects that shaped the house &mdash; gets added as it&rsquo;s recovered.</p>
+
+    <div class="tl-card reveal reveal-d2">
+      <div>
+        <p class="tl-summary"><strong>2</strong> events on file &mdash; from <strong>today</strong>. More to come as records are recovered.</p>
+
+        <div class="tl-tabs">
+          <span class="tl-tab on">All</span>
+          <span class="tl-tab">Projects</span>
+          <span class="tl-tab">Repairs</span>
+          <span class="tl-tab">Documents</span>
+          <span class="tl-tab">Milestones</span>
+        </div>
+
+        <div class="tl-month">Today</div>
+
+        <div class="tl-event">
+          <div class="tl-event-date">
+            <div class="day">—</div>
+            <div class="dow">Day&nbsp;1</div>
+          </div>
+          <div class="tl-event-bullet"><span class="tl-event-bullet-dot"></span></div>
+          <div class="tl-event-body">
+            <div class="tl-event-title">Record opened by the new owner</div>
+            <div class="tl-event-sub">4118 Oak Street &middot; private record begins</div>
+            <span class="tl-event-tag">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+              Milestone
+            </span>
+          </div>
+          <div class="tl-event-time">12:00&nbsp;PM</div>
+        </div>
+
+        <div class="tl-event">
+          <div class="tl-event-date">
+            <div class="day">—</div>
+            <div class="dow">Day&nbsp;1</div>
+          </div>
+          <div class="tl-event-bullet"><span class="tl-event-bullet-dot"></span></div>
+          <div class="tl-event-body">
+            <div class="tl-event-title">Property deed filed to the vault</div>
+            <div class="tl-event-sub">Closing documents received and stored</div>
+            <span class="tl-event-tag">
+              <svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="13" x2="16" y2="13"/></svg>
+              Vault document
+            </span>
+          </div>
+          <div class="tl-event-time">12:00&nbsp;PM</div>
+        </div>
+      </div>
+
+      <aside class="tl-sidebar">
+        <h4>Property memory</h4>
+        <div class="tl-sidebar-stat">
+          <div class="label">Record opened</div>
+          <div class="value">Today</div>
+        </div>
+        <div class="tl-sidebar-stat">
+          <div class="label">Latest activity</div>
+          <div class="value">Today</div>
+        </div>
+        <div class="tl-sidebar-stat">
+          <div class="label">Continuity</div>
+          <div class="value">Day 1</div>
+        </div>
+        <div class="tl-sidebar-divider"></div>
+        <h4>Record origins</h4>
+        <div class="tl-sidebar-stat">
+          <div class="label">From the owner</div>
+          <div class="value">2 events</div>
+        </div>
+        <div class="tl-sidebar-stat">
+          <div class="label">From the previous owner</div>
+          <div class="value">0 events &mdash; pending</div>
+        </div>
+        <div class="tl-sidebar-stat">
+          <div class="label">From county records</div>
+          <div class="value">0 events &mdash; pending</div>
+        </div>
+        <a class="tl-sidebar-link" href="working-example.html">See a developed timeline &rarr;</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     STEP 6 — GUIDANCE
+     ============================================ -->
+<section class="we-section" id="guidance">
+  <div class="we-section-inner">
+    <div class="we-section-eyebrow reveal"><span class="num">06</span>Guidance</div>
+    <h2 class="we-section-title reveal reveal-d1">What this home is asking the new owner to handle first.</h2>
+    <p class="we-section-sub reveal reveal-d1">Drawn from the realities of an inherited record &mdash; not generic homeowner advice. Three working items for an inherited home, right now.</p>
+
+    <div class="guidance-grid reveal reveal-d2">
+      <div class="guidance-card">
+        <div class="guidance-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="1"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 6 L10 4 L14 4 L16 6"/></svg>
+        </div>
+        <div class="guidance-title">Photograph the systems while you&rsquo;re here</div>
+        <div class="guidance-body">Data plates on the HVAC, water heater, and electrical panel encode install dates, model numbers, and warranty references. A few photographs today become the spine of the systems record.</div>
+        <div class="guidance-detail">Builds the systems record</div>
+      </div>
+
+      <div class="guidance-card">
+        <div class="guidance-icon">
+          <svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
+        </div>
+        <div class="guidance-title">Pull the permit history from the county</div>
+        <div class="guidance-body">Greenville County, like most counties, retains building permits for 30 years or more. One request typically returns roof, HVAC, electrical, and addition permits going back decades.</div>
+        <div class="guidance-detail">Closes early gaps in the timeline</div>
+      </div>
+
+      <div class="guidance-card">
+        <div class="guidance-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92V20 a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2 h3.08 a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11 L8.09 9.91 a16 16 0 0 0 6 6 l1.27-1.27 a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 A2 2 0 0 1 22 16.92 z"/></svg>
+        </div>
+        <div class="guidance-title">Ask the previous owner what they remember</div>
+        <div class="guidance-body">One conversation often returns the contractor who replaced the roof, the technician who maintained the HVAC, and the year the kitchen was remodeled. Memory is a vault when the paper trail isn&rsquo;t.</div>
+        <div class="guidance-detail">A single call becomes a record</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     STEP 7 — TRANSFER
+     ============================================ -->
+<section class="we-section" id="transfer">
+  <div class="we-section-inner">
+    <div class="we-section-eyebrow reveal"><span class="num">07</span>Transfer-ready record</div>
+    <h2 class="we-section-title reveal reveal-d1">The record you build is the record the home will keep.</h2>
+    <p class="we-section-sub reveal reveal-d1">An inherited home arrived without a record. The one you begin today is what the next owner will inherit instead &mdash; and what the property will carry forward, intact.</p>
+
+    <div class="transfer-card reveal reveal-d2">
+      <div class="transfer-text">
+        <div class="transfer-eyebrow">The transfer</div>
+        <h3 class="transfer-title">A property file, future-tense.</h3>
+        <p class="transfer-body">
+          The record is private to you while you live in the home. When the home eventually changes hands again, every system, document, and event you&rsquo;ve added transfers in a single step &mdash; ready for the next owner from day one.
+        </p>
+        <ul class="transfer-bullets">
+          <li><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg>Every system, document, and event since the record opens</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg>Transferable warranties stay attached to the property</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg>The blueprint, the vault, the timeline &mdash; intact</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg>Your copy stays with you, exportable any time</li>
+        </ul>
+      </div>
+
+      <div class="transfer-visual">
+        <div class="transfer-mock">
+          <div class="transfer-mock-head">
+            <div>
+              <div class="transfer-mock-title">4118 Oak Street</div>
+              <div class="transfer-mock-sub">Property record &middot; opens today</div>
+            </div>
+            <div class="transfer-mock-badge">Day 1</div>
+          </div>
+
+          <div class="transfer-mock-rows">
+            <div class="transfer-mock-row"><span class="k">Continuity</span><span class="v">Day 1</span></div>
+            <div class="transfer-mock-row"><span class="k">Documented systems</span><span class="v">0 of 4</span></div>
+            <div class="transfer-mock-row"><span class="k">Transferable warranties</span><span class="v">Pending</span></div>
+            <div class="transfer-mock-row"><span class="k">Timeline events</span><span class="v">2 logged</span></div>
+            <div class="transfer-mock-row"><span class="k">Vault documents</span><span class="v">1 on file</span></div>
+          </div>
+
+          <div class="transfer-mock-foot">
+            <span>Owner copy retained</span>
+            <span>Builds over time</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     CLOSE
+     ============================================ -->
+<section class="close">
+  <div class="close-inner">
+    <h2 class="close-title">Begin with the home you inherited.</h2>
+    <p class="close-sub">Kodu is currently in private access. Request a spot and we&rsquo;ll be in touch with next steps for the property.</p>
+    <div class="cta-row">
+      <a href="request-access.html" class="btn btn-primary btn-lg">Request access</a>
+      <a href="working-example.html" class="btn btn-outline btn-lg">Explore a sample property record</a>
+    </div>
+    <div class="close-note">Currently in private access &middot; One record per property &middot; Yours to export at any time</div>
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="nav-wordmark">Kodu <span class="accent">Record</span></span>
+      <p class="foot-statement">The working record of your home &mdash; private to the owner, continuous across owners, built to preserve the property&rsquo;s history over time.</p>
+    </div>
+
+    <div class="foot-col">
+      <h4>Record</h4>
+      <ul>
+        <li><a href="index.html#vault">Blueprint</a></li>
+        <li><a href="index.html#vault">Vault</a></li>
+        <li><a href="index.html#systems">Systems</a></li>
+        <li><a href="index.html#timeline">Timeline</a></li>
+        <li><a href="index.html#transfer">Transfer</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="working-example.html">Sample property record</a></li>
+        <li><a href="request-access.html">Request access</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Built for</h4>
+      <ul>
+        <li><a href="request-access.html">New homeowners</a></li>
+        <li><a href="request-access.html">Long-term owners</a></li>
+        <li><a href="inherited-home.html">Inherited homes</a></li>
+        <li><a href="request-access.html">Owners selling soon</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Kodu</h4>
+      <ul>
+        <li><a href="mailto:hello@kodurecord.com">Contact</a></li>
+        <li><a href="request-access.html">Request access</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot-base">
+    <div>© Kodu, Inc. &middot; 2026</div>
+    <div class="foot-base-links">
+      <a href="mailto:hello@kodurecord.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="analytics.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
