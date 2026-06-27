@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Try Kodu — Sample Property Record</title>
+  <meta name="description" content="Explore a sample Kodu property record. See how the blueprint organizes a home, the vault stores the proof, and the timeline tells its story — built with fictional data. Your real record is private." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://home.kodurecord.com/try-kodu/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Try Kodu — Sample Property Record" />
+  <meta property="og:description" content="A calm, private memory for everything about a home. Explore an interactive sample record built with fictional data." />
+  <meta property="og:url" content="https://home.kodurecord.com/try-kodu/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Try Kodu — Sample Property Record" />
+  <meta name="twitter:description" content="A calm, private memory for everything about a home. Explore an interactive sample record built with fictional data." />
+
+  <!-- Optional: the Inter face the Kodu app uses. The page degrades to the
+       system sans stack if removed. If your marketing styles.css already loads a
+       brand font, delete these three lines and the page will inherit it. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Page styles. Paths are relative, so they resolve under /try-kodu/. If you
+       want to reuse the marketing site's global stylesheet too, add it ABOVE
+       this line: <link rel="stylesheet" href="/styles.css" /> -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Drop-in mount. The .k-tk wrapper scopes all Kodu styles so they extend the
+       marketing site without colliding with its global CSS. To embed inside an
+       existing marketing header/footer, paste this .k-tk block into that page's
+       <main> instead of using this standalone document. -->
+  <div class="k-tk">
+    <div id="tk-root"></div>
+    <div id="tk-modal-root"></div>
+    <div id="tk-guide-root"></div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
