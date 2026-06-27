@@ -1,0 +1,1128 @@
+<!--
+  Kodu - learn/know-your-home-systems/index.html
+  Learn Page 6: Systems, know what your home depends on
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Know What Your Home Depends On | Kodu</title>
+<meta name="description" content="Learn how Kodu helps homeowners keep a private record of home systems, service history, warranties, manuals, proof, and replacement context across the full property." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css">
+
+<style>
+  .systems-page main {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.86), rgba(241,243,247,0.98) 560px),
+      var(--bg);
+  }
+
+  .systems-page .btn {
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.25;
+    text-align: center;
+  }
+
+  .learn-site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.94);
+    border-bottom: 1px solid var(--rule-soft);
+    backdrop-filter: blur(14px) saturate(150%);
+    -webkit-backdrop-filter: blur(14px) saturate(150%);
+  }
+
+  .learn-site-header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+  }
+
+  .learn-site-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 24px;
+  }
+
+  .learn-site-links a:not(.btn) {
+    color: var(--slate);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .learn-site-links a:not(.btn):hover {
+    color: var(--ink);
+  }
+
+  .systems-hero {
+    padding: 64px 32px 54px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .systems-hero-inner,
+  .systems-section-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .systems-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.86fr) minmax(540px, 1.14fr);
+    gap: 56px;
+    align-items: center;
+    margin-top: 44px;
+  }
+
+  .systems-hero-copy {
+    max-width: 660px;
+  }
+
+  .systems-hero-copy .we-eyebrow {
+    margin-bottom: 20px;
+  }
+
+  .systems-hero-copy h1 {
+    color: var(--ink);
+    font-size: clamp(48px, 7vw, 84px);
+    line-height: 0.96;
+    letter-spacing: -0.045em;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  .systems-subheadline {
+    color: var(--ink-2);
+    font-size: 20px;
+    line-height: 1.62;
+    margin: 0 0 18px;
+  }
+
+  .systems-intro {
+    color: var(--slate);
+    font-size: 17px;
+    line-height: 1.75;
+    margin: 0 0 30px;
+  }
+
+  .systems-card {
+    border: 1px solid var(--rule);
+    border-radius: 24px;
+    background: rgba(255,255,255,0.94);
+    box-shadow: 0 18px 42px rgba(26,35,51,0.08);
+  }
+
+  .system-constellation {
+    position: relative;
+    min-height: 560px;
+    padding: 28px;
+    overflow: hidden;
+    background:
+      linear-gradient(rgba(90,100,120,0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(90,100,120,0.055) 1px, transparent 1px),
+      #f4f7fb;
+    background-size: 30px 30px;
+  }
+
+  .constellation-label {
+    position: relative;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 11px;
+    border: 1px solid rgba(25,118,210,0.18);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.84);
+    color: var(--brand);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .constellation-label::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: currentColor;
+  }
+
+  .home-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 230px;
+    min-height: 190px;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    gap: 12px;
+    padding: 24px;
+    border: 1px solid rgba(25,118,210,0.24);
+    border-radius: 30px;
+    background: rgba(255,255,255,0.96);
+    box-shadow: 0 22px 52px rgba(26,35,51,0.13);
+    text-align: center;
+    z-index: 3;
+  }
+
+  .home-center-icon {
+    width: 68px;
+    height: 68px;
+    display: grid;
+    place-items: center;
+    border-radius: 22px;
+    background: var(--brand-tint);
+    color: var(--brand);
+  }
+
+  .home-center-icon svg {
+    width: 34px;
+    height: 34px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+  }
+
+  .home-center strong {
+    color: var(--ink);
+    font-size: 23px;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+
+  .home-center span {
+    color: var(--slate);
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .system-node {
+    position: absolute;
+    z-index: 2;
+    width: 155px;
+    min-height: 74px;
+    padding: 13px 14px;
+    border: 1px solid rgba(26,35,51,0.1);
+    border-radius: 16px;
+    background: rgba(255,255,255,0.94);
+    box-shadow: 0 12px 26px rgba(26,35,51,0.07);
+  }
+
+  .system-node b {
+    display: block;
+    color: var(--ink);
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .system-node span {
+    display: block;
+    color: var(--slate);
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .node-hvac { left: 48px; top: 104px; }
+  .node-roof { left: 50%; top: 84px; transform: translateX(-50%); }
+  .node-electrical { right: 48px; top: 104px; }
+  .node-plumbing { left: 38px; top: 244px; }
+  .node-water { right: 38px; top: 244px; }
+  .node-security { left: 52px; bottom: 110px; }
+  .node-irrigation { left: 50%; bottom: 76px; transform: translateX(-50%); }
+  .node-gas { right: 52px; bottom: 110px; }
+  .node-well { right: 50%; bottom: 190px; transform: translateX(50%); }
+
+  .system-line {
+    position: absolute;
+    z-index: 1;
+    height: 1px;
+    background: rgba(25,118,210,0.22);
+    transform-origin: left center;
+  }
+
+  .line-hvac { left: 188px; top: 148px; width: 196px; transform: rotate(24deg); }
+  .line-roof { left: 50%; top: 160px; width: 1px; height: 100px; transform: translateX(-50%); }
+  .line-electrical { right: 188px; top: 148px; width: 196px; transform: rotate(156deg); }
+  .line-plumbing { left: 178px; top: 282px; width: 188px; transform: rotate(4deg); }
+  .line-water { right: 178px; top: 282px; width: 188px; transform: rotate(176deg); }
+  .line-security { left: 190px; bottom: 148px; width: 190px; transform: rotate(-25deg); }
+  .line-irrigation { left: 50%; bottom: 150px; width: 1px; height: 104px; transform: translateX(-50%); }
+  .line-gas { right: 190px; bottom: 148px; width: 190px; transform: rotate(205deg); }
+
+  .systems-section {
+    position: relative;
+    z-index: 2;
+    padding: 58px 32px;
+  }
+
+  .systems-section-head {
+    display: grid;
+    grid-template-columns: minmax(0, 0.86fr) minmax(320px, 0.52fr);
+    gap: 34px;
+    align-items: end;
+    margin-bottom: 30px;
+  }
+
+  .systems-section-head h2 {
+    color: var(--ink);
+    font-size: clamp(32px, 5vw, 58px);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    margin-top: 10px;
+  }
+
+  .systems-section-head p {
+    color: var(--slate);
+    font-size: 16px;
+    line-height: 1.72;
+    margin: 0;
+  }
+
+  .keeps-card {
+    padding: 26px;
+  }
+
+  .keeps-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+  }
+
+  .keeps-item {
+    min-height: 210px;
+    padding: 22px;
+    border: 1px solid var(--rule-soft);
+    border-radius: 18px;
+    background: #fff;
+  }
+
+  .keeps-item span {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: var(--brand-tint);
+    color: var(--brand);
+    font-weight: 800;
+    margin-bottom: 18px;
+  }
+
+  .keeps-item h3 {
+    color: var(--ink);
+    font-size: 19px;
+    line-height: 1.18;
+    margin-bottom: 10px;
+  }
+
+  .keeps-item p {
+    color: var(--slate);
+    font-size: 14px;
+    line-height: 1.62;
+    margin: 0;
+  }
+
+  .systems-fragment-wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 0.48fr) minmax(580px, 1fr);
+    gap: 36px;
+    align-items: center;
+  }
+
+  .systems-fragment-copy h2 {
+    color: var(--ink);
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.06;
+    letter-spacing: -0.035em;
+    margin: 10px 0 18px;
+  }
+
+  .systems-fragment-copy p {
+    color: var(--slate);
+    font-size: 16px;
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  .system-detail-surface {
+    padding: 24px;
+    border: 1px solid var(--rule);
+    border-radius: 24px;
+    background:
+      linear-gradient(rgba(90,100,120,0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(90,100,120,0.055) 1px, transparent 1px),
+      #eef3f8;
+    background-size: 30px 30px;
+  }
+
+  .system-detail-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 18px;
+    padding: 18px;
+    border: 1px solid var(--rule);
+    border-radius: 22px;
+    background: rgba(255,255,255,0.96);
+    box-shadow: 0 16px 34px rgba(26,35,51,0.08);
+  }
+
+  .detail-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    padding-bottom: 16px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .detail-header small,
+  .records-list small,
+  .connected-card small {
+    display: block;
+    color: var(--brand);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+
+  .detail-header h3 {
+    color: var(--ink);
+    font-size: 26px;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+
+  .status-pill {
+    align-self: start;
+    padding: 8px 10px;
+    border-radius: 999px;
+    background: var(--brand-tint);
+    color: var(--brand);
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  .system-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .system-stat {
+    padding: 13px;
+    border: 1px solid var(--rule-soft);
+    border-radius: 14px;
+    background: var(--bg);
+  }
+
+  .system-stat b {
+    display: block;
+    color: var(--ink);
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  .system-stat span {
+    color: var(--slate);
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .records-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .record-row {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid var(--rule-soft);
+    border-radius: 14px;
+    background: #fff;
+  }
+
+  .record-icon {
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(25,118,210,0.22);
+    border-radius: 11px;
+    background:
+      linear-gradient(135deg, transparent 0 70%, rgba(25,118,210,0.18) 70% 100%),
+      #fff;
+  }
+
+  .record-row h4 {
+    color: var(--ink);
+    font-size: 14px;
+    margin-bottom: 3px;
+  }
+
+  .record-row p {
+    color: var(--slate);
+    font-size: 12px;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .connected-card {
+    padding: 16px;
+    border: 1px solid var(--rule-soft);
+    border-radius: 18px;
+    background: var(--bg);
+  }
+
+  .connected-card h3 {
+    color: var(--ink);
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  .connected-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .connected-list span {
+    display: block;
+    padding: 10px 12px;
+    border: 1px solid var(--rule-soft);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--ink-2);
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .connected-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+    color: var(--slate);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .scope-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+
+  .scope-card {
+    padding: 24px;
+    min-height: 310px;
+    border: 1px solid var(--rule);
+    border-radius: 22px;
+    background: rgba(255,255,255,0.94);
+    box-shadow: 0 12px 28px rgba(26,35,51,0.05);
+  }
+
+  .scope-card span {
+    display: inline-flex;
+    min-height: 30px;
+    align-items: center;
+    padding: 6px 9px;
+    border-radius: 999px;
+    background: var(--brand-tint);
+    color: var(--brand);
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 18px;
+  }
+
+  .scope-card h3 {
+    color: var(--ink);
+    font-size: 22px;
+    line-height: 1.18;
+    margin-bottom: 14px;
+  }
+
+  .scope-card ul {
+    display: grid;
+    gap: 10px;
+    list-style: none;
+  }
+
+  .scope-card li {
+    color: var(--slate);
+    font-size: 14px;
+    line-height: 1.45;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .scope-card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--brand);
+  }
+
+  .systems-bottom {
+    padding-top: 0;
+  }
+
+  .systems-bottom-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 30px;
+    align-items: center;
+    padding: 38px;
+    border: 1px solid rgba(25,118,210,0.18);
+    border-radius: 26px;
+    background: var(--ink);
+    color: #fff;
+  }
+
+  .systems-bottom-card h2 {
+    color: #fff;
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    margin-bottom: 14px;
+  }
+
+  .systems-bottom-card p {
+    color: rgba(255,255,255,0.76);
+    font-size: 16px;
+    line-height: 1.68;
+    max-width: 760px;
+    margin: 0;
+  }
+
+  .systems-bottom-card .btn-neutral {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,0.34);
+  }
+
+  @media (max-width: 1120px) {
+    .systems-hero-grid,
+    .systems-section-head,
+    .systems-fragment-wrap,
+    .systems-bottom-card {
+      grid-template-columns: 1fr;
+    }
+
+    .systems-hero-copy,
+    .systems-fragment-copy {
+      max-width: 780px;
+    }
+
+    .keeps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .scope-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .system-detail-card {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .learn-site-header-inner,
+    .systems-hero,
+    .systems-section {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .learn-site-header-inner {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .learn-site-links {
+      width: 100%;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .systems-hero {
+      padding-top: 48px;
+    }
+
+    .systems-hero-grid {
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .systems-hero-copy h1 {
+      font-size: clamp(42px, 13vw, 58px);
+    }
+
+    .systems-subheadline {
+      font-size: 17px;
+    }
+
+    .systems-intro {
+      font-size: 16px;
+    }
+
+    .system-constellation {
+      min-height: 930px;
+      padding: 18px;
+    }
+
+    .home-center,
+    .system-node {
+      position: relative;
+      left: auto;
+      right: auto;
+      top: auto;
+      bottom: auto;
+      width: auto;
+      transform: none;
+    }
+
+    .home-center {
+      margin: 22px 0;
+    }
+
+    .system-node {
+      margin-top: 10px;
+    }
+
+    .system-line {
+      display: none;
+    }
+
+    .keeps-grid,
+    .scope-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .keeps-card,
+    .system-detail-surface {
+      padding: 16px;
+    }
+
+    .system-detail-card {
+      padding: 14px;
+    }
+
+    .detail-header {
+      display: grid;
+    }
+
+    .system-stats {
+      grid-template-columns: 1fr;
+    }
+
+    .scope-card {
+      min-height: 0;
+    }
+
+    .systems-bottom-card {
+      padding: 28px 24px;
+    }
+
+    .systems-bottom-card .cta-row,
+    .systems-bottom-card .btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Know what your home depends on",
+  "description": "Learn how Kodu helps homeowners keep a private record of home systems, service history, warranties, manuals, proof, and replacement context across the full property.",
+  "url": "https://kodurecord.com/learn/know-your-home-systems/",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Kodu"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://kodurecord.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Learn",
+        "item": "https://kodurecord.com/learn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Know what your home depends on",
+        "item": "https://kodurecord.com/learn/know-your-home-systems/"
+      }
+    ]
+  }
+}
+</script>
+</head>
+<body class="learn-page systems-page">
+
+<header class="learn-site-header">
+  <div class="learn-site-header-inner">
+    <a class="nav-brand" href="../../index.html" aria-label="Kodu home">
+      <span class="nav-wordmark">Kodu <span class="accent">Record</span></span>
+    </a>
+
+    <nav class="learn-site-links" aria-label="Learn navigation">
+      <a href="../what-is-a-home-property-record/">Learn</a>
+      <a href="../../working-example.html">Sample Record</a>
+      <a href="../../index.html#transfer">Stewardship</a>
+      <a href="../../request-access.html" class="btn btn-primary btn-sm">Request access</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="systems-hero" aria-labelledby="systems-title">
+    <div class="systems-hero-inner">
+      <nav class="we-breadcrumb learn-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+        <span>Learn</span>
+        <svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+        <span>Know your home systems</span>
+      </nav>
+
+      <div class="systems-hero-grid">
+        <div class="systems-hero-copy">
+          <div class="we-eyebrow">SYSTEMS LAYER</div>
+          <h1 id="systems-title">Know what your home depends on.</h1>
+          <p class="systems-subheadline">
+            Kodu helps homeowners keep a private record of the systems that keep the property working, from install dates and service history to warranties, receipts, manuals, and replacement context.
+          </p>
+          <p class="systems-intro">
+            Systems are not just equipment. They are part of the property&rsquo;s living record, tied to maintenance history, proof, project history, and future decisions across the full property.
+          </p>
+          <div class="cta-row">
+            <a href="../../working-example.html" class="btn btn-primary btn-lg">View sample record</a>
+            <a href="../../request-access.html" class="btn btn-neutral btn-lg">Request access</a>
+          </div>
+        </div>
+
+        <figure class="systems-card system-constellation" role="img" aria-label="A system constellation showing HVAC, roof, electrical, plumbing, water heater, security, irrigation, gas, and well or septic connected to one property center.">
+          <span class="constellation-label">Property anatomy</span>
+
+          <i class="system-line line-hvac" aria-hidden="true"></i>
+          <i class="system-line line-roof" aria-hidden="true"></i>
+          <i class="system-line line-electrical" aria-hidden="true"></i>
+          <i class="system-line line-plumbing" aria-hidden="true"></i>
+          <i class="system-line line-water" aria-hidden="true"></i>
+          <i class="system-line line-security" aria-hidden="true"></i>
+          <i class="system-line line-irrigation" aria-hidden="true"></i>
+          <i class="system-line line-gas" aria-hidden="true"></i>
+
+          <article class="system-node node-hvac"><b>HVAC</b><span>Comfort, service trail, filter history</span></article>
+          <article class="system-node node-roof"><b>Roof</b><span>Warranty, inspections, repairs</span></article>
+          <article class="system-node node-electrical"><b>Electrical</b><span>Panel, upgrades, safety notes</span></article>
+          <article class="system-node node-plumbing"><b>Plumbing</b><span>Fixtures, shutoffs, service proof</span></article>
+          <article class="system-node node-water"><b>Water heater</b><span>Manuals, install date, warranty</span></article>
+          <article class="system-node node-security"><b>Security</b><span>Devices, monitoring, access notes</span></article>
+          <article class="system-node node-irrigation"><b>Irrigation</b><span>Zones, service, seasonal care</span></article>
+          <article class="system-node node-gas"><b>Gas</b><span>Appliances, lines, service context</span></article>
+          <article class="system-node node-well"><b>Well / septic</b><span>Tests, pumps, maintenance history</span></article>
+
+          <div class="home-center">
+            <span class="home-center-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 L12 4 L20 11 V20 H4 Z"/><path d="M8 20 V13 H16 V20"/><path d="M9 9 H15"/></svg>
+            </span>
+            <strong>One private property memory</strong>
+            <span>Systems stay connected to the home they keep working.</span>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="systems-section" id="what-a-system-keeps" aria-labelledby="keeps-title">
+    <div class="systems-section-inner">
+      <div class="systems-section-head">
+        <div>
+          <div class="we-section-eyebrow"><span class="num">01</span>System record</div>
+          <h2 id="keeps-title">What a system record keeps.</h2>
+        </div>
+        <p>
+          A system record helps a homeowner understand what exists, when it changed, where the proof lives, and what may matter next.
+        </p>
+      </div>
+
+      <article class="systems-card keeps-card">
+        <div class="keeps-grid">
+          <article class="keeps-item">
+            <span>1</span>
+            <h3>Install date</h3>
+            <p>The install date gives age and replacement context, especially when a system begins to need more attention.</p>
+          </article>
+
+          <article class="keeps-item">
+            <span>2</span>
+            <h3>Service history</h3>
+            <p>Service history keeps maintenance from disappearing across visits, seasons, and household memory.</p>
+          </article>
+
+          <article class="keeps-item">
+            <span>3</span>
+            <h3>Warranty</h3>
+            <p>A warranty is more useful when it stays close to the system it protects and the date it may expire.</p>
+          </article>
+
+          <article class="keeps-item">
+            <span>4</span>
+            <h3>Manuals</h3>
+            <p>Manuals keep care instructions, model details, and maintenance requirements close to the equipment.</p>
+          </article>
+
+          <article class="keeps-item">
+            <span>5</span>
+            <h3>Proof and photos</h3>
+            <p>Receipts, photos, notes, and records help explain what happened and where the proof lives.</p>
+          </article>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="systems-section" id="systems-product-fragment" aria-labelledby="fragment-title">
+    <div class="systems-section-inner systems-fragment-wrap">
+      <div class="systems-fragment-copy">
+        <div class="we-section-eyebrow"><span class="num">02</span>Product fragment</div>
+        <h2 id="fragment-title">A cropped system record, not a full product screen.</h2>
+        <p>
+          A public learn page only needs enough product detail to explain the idea. Here, one HVAC record shows how service history, warranty proof, connected records, and guidance can stay attached to the system.
+        </p>
+      </div>
+
+      <div class="system-detail-surface" aria-label="Cropped Kodu system record fragment for HVAC">
+        <article class="system-detail-card">
+          <div>
+            <header class="detail-header">
+              <div>
+                <small>System</small>
+                <h3>HVAC</h3>
+              </div>
+              <span class="status-pill">Maintenance trail active</span>
+            </header>
+
+            <div class="system-stats">
+              <div class="system-stat"><b>Last service</b><span>May 2026</span></div>
+              <div class="system-stat"><b>Warranty</b><span>Saved in Vault</span></div>
+              <div class="system-stat"><b>Record type</b><span>Utility system</span></div>
+            </div>
+
+            <div class="records-list">
+              <small>Connected records</small>
+              <article class="record-row">
+                <span class="record-icon" aria-hidden="true"></span>
+                <div><h4>HVAC service receipt</h4><p>Proof from the most recent service visit.</p></div>
+              </article>
+              <article class="record-row">
+                <span class="record-icon" aria-hidden="true"></span>
+                <div><h4>Air handler photo</h4><p>Visual reference for the equipment and location.</p></div>
+              </article>
+              <article class="record-row">
+                <span class="record-icon" aria-hidden="true"></span>
+                <div><h4>Filter replacement note</h4><p>A small maintenance detail that matters over time.</p></div>
+              </article>
+              <article class="record-row">
+                <span class="record-icon" aria-hidden="true"></span>
+                <div><h4>Install manual</h4><p>Care instructions and model context saved with the system.</p></div>
+              </article>
+            </div>
+          </div>
+
+          <aside class="connected-card">
+            <small>Connected to</small>
+            <h3>HVAC system record</h3>
+            <div class="connected-list">
+              <span>Vault</span>
+              <span>Timeline</span>
+              <span>Guidance</span>
+            </div>
+            <p class="connected-note">
+              The system record keeps proof, maintenance history, and future context together without pretending the learn page is the working product.
+            </p>
+          </aside>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="systems-section" id="full-property-scope" aria-labelledby="scope-title">
+    <div class="systems-section-inner">
+      <div class="systems-section-head">
+        <div>
+          <div class="we-section-eyebrow"><span class="num">03</span>Full property scope</div>
+          <h2 id="scope-title">Kodu follows systems across the full property.</h2>
+        </div>
+        <p>
+          A home&rsquo;s systems are not only inside the walls. Kodu helps organize interior, exterior, utility, and site systems as parts of the same private record.
+        </p>
+      </div>
+
+      <div class="scope-grid">
+        <article class="scope-card">
+          <span>Interior systems</span>
+          <h3>Inside the home</h3>
+          <ul>
+            <li>HVAC</li>
+            <li>Electrical</li>
+            <li>Plumbing</li>
+            <li>Appliances</li>
+            <li>Fire / smoke / CO</li>
+          </ul>
+        </article>
+
+        <article class="scope-card">
+          <span>Exterior systems</span>
+          <h3>Outside protection</h3>
+          <ul>
+            <li>Roof</li>
+            <li>Siding</li>
+            <li>Windows</li>
+            <li>Gutters</li>
+            <li>Exterior doors</li>
+          </ul>
+        </article>
+
+        <article class="scope-card">
+          <span>Utility systems</span>
+          <h3>Core property service</h3>
+          <ul>
+            <li>Gas</li>
+            <li>Sewer</li>
+            <li>Septic</li>
+            <li>Well</li>
+            <li>Water supply</li>
+            <li>Sump pump</li>
+          </ul>
+        </article>
+
+        <article class="scope-card">
+          <span>Site systems</span>
+          <h3>Land and access</h3>
+          <ul>
+            <li>Irrigation</li>
+            <li>Drainage</li>
+            <li>Grading</li>
+            <li>Outdoor lighting</li>
+            <li>Fences</li>
+            <li>Gates</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="systems-section systems-bottom" aria-labelledby="systems-bottom-title">
+    <div class="systems-section-inner">
+      <article class="systems-bottom-card">
+        <div>
+          <h2 id="systems-bottom-title">A system record becomes more valuable over time.</h2>
+          <p>
+            Every service visit, warranty, replacement, photo, and note adds context. Kodu helps the homeowner see what changed, what needs attention, and where the proof lives.
+          </p>
+        </div>
+        <div class="cta-row">
+          <a href="../../working-example.html" class="btn btn-primary btn-lg">View sample record</a>
+          <a href="../../request-access.html" class="btn btn-neutral btn-lg">Request access</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="nav-wordmark">Kodu <span class="accent">Record</span></span>
+      <p class="foot-statement">The working record of your home &mdash; private to the owner, continuous across owners, built to preserve the property&rsquo;s history over time.</p>
+    </div>
+
+    <div class="foot-col">
+      <h4>Record</h4>
+      <ul>
+        <li><a href="../../index.html#vault">Blueprint</a></li>
+        <li><a href="../../index.html#vault">Vault</a></li>
+        <li><a href="../../index.html#systems">Systems</a></li>
+        <li><a href="../../index.html#timeline">Timeline</a></li>
+        <li><a href="../../index.html#transfer">Transfer</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="../../working-example.html">Sample property record</a></li>
+        <li><a href="../../request-access.html">Request access</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Built for</h4>
+      <ul>
+        <li><a href="../../request-access.html">New homeowners</a></li>
+        <li><a href="../../request-access.html">Long-term owners</a></li>
+        <li><a href="../../request-access.html">Inherited homes</a></li>
+        <li><a href="../../request-access.html">Owners selling soon</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Kodu</h4>
+      <ul>
+        <li><a href="mailto:hello@kodurecord.com">Contact</a></li>
+        <li><a href="../../request-access.html">Request access</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot-base">
+    <div>&copy; Kodu, Inc. &middot; 2026</div>
+    <div class="foot-base-links">
+      <a href="mailto:hello@kodurecord.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../../analytics.js"></script>
+</body>
+</html>

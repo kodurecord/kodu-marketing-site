@@ -1,0 +1,1996 @@
+<!--
+  Kodu - learn/how-kodu-creates-your-property-memory/index.html
+  Knowledge ecosystem Page 4: How Kodu creates your property's memory
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How Kodu Creates Your Property&rsquo;s Memory | Kodu</title>
+<meta name="description" content="Learn how Kodu organizes a home's blueprint, proof, timeline, and guidance into one private homeowner-controlled property memory." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css">
+
+<style>
+  .memory-page main {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.68), rgba(241,243,247,0.94) 520px),
+      var(--bg);
+  }
+
+  .memory-page .btn {
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.25;
+    text-align: center;
+  }
+
+  .memory-hero .learn-hero-panel {
+    grid-template-columns: minmax(0, 0.86fr) minmax(500px, 1.14fr);
+    align-items: stretch;
+    overflow: hidden;
+  }
+
+  .memory-hero .learn-hero-copy {
+    padding: 48px 0 48px 48px;
+  }
+
+  .memory-hero .learn-hero-copy .we-title {
+    max-width: 660px;
+  }
+
+  .memory-hero .learn-hero-copy .we-sub {
+    max-width: 660px;
+  }
+
+  .memory-hero .cta-row {
+    margin-top: 28px;
+  }
+
+  .memory-placeholder {
+    position: relative;
+    margin: 0;
+    border: 1px solid var(--rule);
+    border-radius: 22px;
+    background: var(--surface);
+    box-shadow: 0 18px 42px rgba(26, 35, 51, 0.08);
+    overflow: hidden;
+  }
+
+  .memory-placeholder-art {
+    min-height: 360px;
+    position: relative;
+    background-color: #f7f5ef;
+    background-image:
+      linear-gradient(rgba(90, 100, 120, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(90, 100, 120, 0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .placeholder-caption {
+    display: grid;
+    gap: 14px;
+    padding: 18px 20px 20px;
+    border-top: 1px solid var(--rule-soft);
+    background: rgba(255,255,255,0.88);
+  }
+
+  .placeholder-caption > strong {
+    color: var(--ink);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .placeholder-caption dl {
+    display: grid;
+    grid-template-columns: 156px 1fr;
+    gap: 8px 14px;
+    color: var(--slate);
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .placeholder-caption dt {
+    color: var(--ink-2);
+    font-weight: 700;
+  }
+
+  .placeholder-caption dd {
+    margin: 0;
+  }
+
+  .convergence-art {
+    min-height: 520px;
+  }
+
+  .memory-source-card {
+    position: absolute;
+    width: 146px;
+    min-height: 92px;
+    padding: 14px;
+    border: 1px solid rgba(26, 35, 51, 0.1);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 12px 28px rgba(26, 35, 51, 0.08);
+    color: var(--ink-2);
+    font-size: 12px;
+  }
+
+  .memory-source-card b {
+    display: block;
+    color: var(--ink);
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .memory-source-card span {
+    display: block;
+    height: 7px;
+    margin-top: 7px;
+    border-radius: 99px;
+    background: var(--rule);
+  }
+
+  .source-receipt { top: 46px; left: 42px; transform: rotate(-4deg); }
+  .source-warranty { top: 48px; right: 46px; transform: rotate(3deg); }
+  .source-photo { bottom: 178px; left: 34px; transform: rotate(4deg); }
+  .source-note { bottom: 166px; right: 42px; transform: rotate(-5deg); }
+
+  .memory-thread {
+    position: absolute;
+    border-top: 1px solid rgba(25, 118, 210, 0.24);
+    transform-origin: left center;
+  }
+
+  .thread-1 { top: 162px; left: 176px; width: 154px; transform: rotate(19deg); }
+  .thread-2 { top: 162px; right: 176px; width: 154px; transform: rotate(161deg); }
+  .thread-3 { bottom: 235px; left: 170px; width: 166px; transform: rotate(-15deg); }
+  .thread-4 { bottom: 232px; right: 170px; width: 166px; transform: rotate(195deg); }
+
+  .memory-core-card {
+    position: absolute;
+    left: 50%;
+    top: 48%;
+    width: min(360px, 58%);
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(25, 118, 210, 0.18);
+    border-radius: 20px;
+    background: rgba(255,255,255,0.94);
+    box-shadow: 0 22px 52px rgba(26, 35, 51, 0.13);
+    overflow: hidden;
+  }
+
+  .memory-core-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--rule-soft);
+    color: var(--slate);
+    font-size: 12px;
+  }
+
+  .memory-core-top span:first-child {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .memory-core-body {
+    padding: 22px;
+  }
+
+  .memory-core-body small {
+    display: block;
+    color: var(--brand);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .memory-core-body strong {
+    display: block;
+    color: var(--ink);
+    font-size: 25px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+
+  .memory-core-body p {
+    color: var(--slate);
+    font-size: 14px;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .memory-core-layers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .memory-core-layers span {
+    padding: 10px 8px;
+    border-radius: 10px;
+    background: var(--brand-tint);
+    color: var(--ink-2);
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .memory-video {
+    padding-top: 16px;
+  }
+
+  .video-placeholder-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 390px;
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  .video-poster {
+    min-height: 420px;
+    border-radius: 22px;
+    background: var(--ink);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .video-poster::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .video-poster-inner {
+    position: absolute;
+    inset: 28px;
+    display: grid;
+    grid-template-columns: 1fr 230px;
+    gap: 24px;
+    align-items: end;
+  }
+
+  .video-title-card {
+    position: relative;
+    z-index: 1;
+    max-width: 560px;
+  }
+
+  .video-title-card span {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 10px;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+    color: rgba(255,255,255,0.78);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .video-title-card h2 {
+    color: #fff;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    margin-bottom: 16px;
+  }
+
+  .video-title-card p {
+    color: rgba(255,255,255,0.74);
+    max-width: 520px;
+    font-size: 15px;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .video-play-ui {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 18px;
+    justify-items: center;
+  }
+
+  .video-play-button {
+    width: 86px;
+    height: 86px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: #fff;
+    color: var(--ink);
+    box-shadow: 0 20px 46px rgba(0,0,0,0.22);
+  }
+
+  .video-play-button svg {
+    width: 34px;
+    height: 34px;
+    fill: currentColor;
+    margin-left: 5px;
+  }
+
+  .video-control-strip {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.11);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .video-control-strip span {
+    display: block;
+    height: 5px;
+    border-radius: 99px;
+    background: rgba(255,255,255,0.22);
+  }
+
+  .video-control-strip span::before {
+    content: "";
+    display: block;
+    width: 28%;
+    height: 100%;
+    border-radius: inherit;
+    background: #fff;
+  }
+
+  .video-side-copy {
+    display: grid;
+    align-content: center;
+    gap: 18px;
+    padding: 32px;
+    border: 1px solid var(--rule);
+    border-radius: 22px;
+    background: var(--surface);
+  }
+
+  .video-side-copy h2 {
+    color: var(--ink);
+    font-size: 28px;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+  }
+
+  .video-side-copy p {
+    color: var(--slate);
+    margin: 0;
+  }
+
+  .memory-anatomy-section {
+    background: var(--surface);
+    border-top: 1px solid var(--rule-soft);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .memory-anatomy {
+    position: relative;
+  }
+
+  .memory-layer-radio {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .memory-layer-switch {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(120px, 1fr));
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .memory-layer-switch label {
+    cursor: pointer;
+  }
+
+  .memory-layer-switch span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--slate);
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  #layer-blueprint:checked ~ .memory-layer-switch label[for="layer-blueprint"] span,
+  #layer-vault:checked ~ .memory-layer-switch label[for="layer-vault"] span,
+  #layer-timeline:checked ~ .memory-layer-switch label[for="layer-timeline"] span,
+  #layer-guidance:checked ~ .memory-layer-switch label[for="layer-guidance"] span,
+  #layer-control:checked ~ .memory-layer-switch label[for="layer-control"] span {
+    border-color: rgba(25,118,210,0.34);
+    background: var(--brand-tint);
+    color: var(--ink);
+    box-shadow: 0 8px 20px rgba(25,118,210,0.08);
+  }
+
+  #layer-blueprint:focus-visible ~ .memory-layer-switch label[for="layer-blueprint"] span,
+  #layer-vault:focus-visible ~ .memory-layer-switch label[for="layer-vault"] span,
+  #layer-timeline:focus-visible ~ .memory-layer-switch label[for="layer-timeline"] span,
+  #layer-guidance:focus-visible ~ .memory-layer-switch label[for="layer-guidance"] span,
+  #layer-control:focus-visible ~ .memory-layer-switch label[for="layer-control"] span {
+    outline: 3px solid rgba(25,118,210,0.26);
+    outline-offset: 2px;
+  }
+
+  .anatomy-stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  .record-core-map {
+    min-height: 520px;
+    border: 1px solid var(--rule);
+    border-radius: 24px;
+    background:
+      linear-gradient(rgba(90,100,120,0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(90,100,120,0.055) 1px, transparent 1px),
+      #f8fafc;
+    background-size: 32px 32px;
+    padding: 28px;
+    display: grid;
+    align-content: center;
+    gap: 22px;
+  }
+
+  .record-id-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 18px;
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    background: #fff;
+    color: var(--slate);
+    font-size: 13px;
+  }
+
+  .record-id-row strong {
+    color: var(--ink);
+    letter-spacing: 0.12em;
+  }
+
+  .record-layer-stack {
+    display: grid;
+    gap: 12px;
+  }
+
+  .record-layer {
+    display: grid;
+    grid-template-columns: 150px 1fr auto;
+    align-items: center;
+    gap: 18px;
+    min-height: 74px;
+    padding: 14px 18px;
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    background: rgba(255,255,255,0.92);
+    box-shadow: 0 10px 24px rgba(26,35,51,0.05);
+  }
+
+  .record-layer span:first-child {
+    color: var(--ink);
+    font-weight: 800;
+  }
+
+  .record-layer p {
+    color: var(--slate);
+    font-size: 13px;
+    margin: 0;
+  }
+
+  .record-layer b {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    background: var(--brand-tint);
+    color: var(--brand);
+    display: grid;
+    place-items: center;
+    font-size: 12px;
+  }
+
+  .record-identity-rail {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+  }
+
+  .record-identity-rail span {
+    min-height: 50px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--ink-2);
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .layer-panel {
+    display: none;
+    min-height: 520px;
+    padding: 32px;
+    border: 1px solid var(--rule);
+    border-radius: 24px;
+    background: #fff;
+  }
+
+  .layer-panel .we-section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .layer-panel .we-section-eyebrow .num {
+    flex: 0 0 auto;
+    margin: 0;
+  }
+
+  .layer-panel h3 {
+    color: var(--ink);
+    font-size: 30px;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+
+  .layer-panel p {
+    color: var(--slate);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .layer-panel ul {
+    display: grid;
+    gap: 12px;
+    margin: 24px 0 0;
+    list-style: none;
+  }
+
+  .layer-panel li {
+    position: relative;
+    padding-left: 24px;
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+
+  .layer-panel li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.68em;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--brand);
+  }
+
+  #layer-blueprint:checked ~ .anatomy-stage .panel-blueprint,
+  #layer-vault:checked ~ .anatomy-stage .panel-vault,
+  #layer-timeline:checked ~ .anatomy-stage .panel-timeline,
+  #layer-guidance:checked ~ .anatomy-stage .panel-guidance,
+  #layer-control:checked ~ .anatomy-stage .panel-control {
+    display: block;
+  }
+
+  .memory-layer-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.88fr) minmax(460px, 1.12fr);
+    gap: 44px;
+    align-items: center;
+  }
+
+  .memory-layer-grid.reverse {
+    grid-template-columns: minmax(460px, 1.12fr) minmax(0, 0.88fr);
+  }
+
+  .memory-layer-copy h2 {
+    max-width: 640px;
+  }
+
+  .memory-layer-copy .we-section-sub {
+    max-width: 640px;
+  }
+
+  .memory-layer-copy p.memory-copy {
+    color: var(--slate);
+    font-size: 16px;
+    line-height: 1.75;
+    max-width: 660px;
+    margin-top: 20px;
+  }
+
+  .memory-outcome-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 24px;
+    list-style: none;
+  }
+
+  .memory-outcome-list li {
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    gap: 12px;
+    align-items: start;
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+
+  .memory-outcome-list span {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--brand-tint);
+    color: var(--brand);
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+  }
+
+  .blueprint-art,
+  .vault-art,
+  .timeline-art,
+  .guidance-art,
+  .control-art {
+    min-height: 420px;
+  }
+
+  .guidance-art {
+    min-height: 500px;
+  }
+
+  .blueprint-panel {
+    position: absolute;
+    inset: 40px;
+    border: 1px solid rgba(25,118,210,0.26);
+    border-radius: 18px;
+    background: rgba(255,255,255,0.78);
+    padding: 24px;
+  }
+
+  .blueprint-house {
+    position: absolute;
+    inset: 78px 72px 72px;
+    border: 2px solid rgba(25,118,210,0.48);
+    border-radius: 8px;
+  }
+
+  .blueprint-house::before,
+  .blueprint-house::after {
+    content: "";
+    position: absolute;
+    background: rgba(25,118,210,0.32);
+  }
+
+  .blueprint-house::before {
+    left: 40%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+  }
+
+  .blueprint-house::after {
+    left: 0;
+    right: 0;
+    top: 45%;
+    height: 2px;
+  }
+
+  .blueprint-label {
+    position: absolute;
+    padding: 8px 10px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--ink-2);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .blueprint-label.one { top: 46px; left: 46px; }
+  .blueprint-label.two { right: 52px; top: 128px; }
+  .blueprint-label.three { left: 60px; bottom: 72px; }
+
+  .vault-card-stack {
+    position: absolute;
+    inset: 42px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    align-content: center;
+  }
+
+  .vault-proof-card {
+    min-height: 132px;
+    padding: 18px;
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    background: rgba(255,255,255,0.92);
+    box-shadow: 0 12px 28px rgba(26,35,51,0.07);
+  }
+
+  .vault-proof-card b {
+    display: block;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .vault-proof-card span {
+    display: block;
+    height: 7px;
+    border-radius: 99px;
+    background: var(--rule);
+    margin-top: 8px;
+  }
+
+  .vault-lock {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 86px;
+    height: 86px;
+    transform: translate(-50%, -50%);
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: var(--ink);
+    color: #fff;
+    box-shadow: 0 20px 42px rgba(26,35,51,0.18);
+  }
+
+  .vault-lock svg {
+    width: 38px;
+    height: 38px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+  }
+
+  .timeline-strip {
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .timeline-strip::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 32px;
+    height: 2px;
+    background: rgba(25,118,210,0.28);
+  }
+
+  .timeline-node {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .timeline-node i {
+    position: relative;
+    z-index: 1;
+    width: 66px;
+    height: 66px;
+    border: 8px solid #f7f5ef;
+    border-radius: 999px;
+    background: var(--brand-tint);
+    box-shadow: inset 0 0 0 1px rgba(25,118,210,0.18);
+  }
+
+  .timeline-node b {
+    color: var(--ink);
+    font-size: 13px;
+  }
+
+  .timeline-node span {
+    color: var(--slate);
+    font-size: 12px;
+  }
+
+  .guidance-card-shell {
+    position: absolute;
+    inset: 36px;
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .guidance-main-card,
+  .guidance-side-card {
+    border: 1px solid var(--rule);
+    border-radius: 18px;
+    background: rgba(255,255,255,0.94);
+    padding: 24px;
+  }
+
+  .guidance-main-card small {
+    color: var(--brand);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .guidance-main-card h3 {
+    color: var(--ink);
+    font-size: 26px;
+    line-height: 1.12;
+    margin: 12px 0 12px;
+  }
+
+  .guidance-list {
+    display: grid;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .guidance-list span {
+    display: block;
+    padding: 11px 14px;
+    border-radius: 12px;
+    background: var(--bg);
+    color: var(--ink-2);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .guidance-side-card {
+    display: grid;
+    align-content: center;
+    gap: 12px;
+  }
+
+  .guidance-side-card b {
+    color: var(--ink);
+    font-size: 15px;
+  }
+
+  .guidance-side-card span {
+    display: block;
+    height: 8px;
+    border-radius: 99px;
+    background: var(--rule);
+  }
+
+  .control-card {
+    position: absolute;
+    inset: 40px;
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 22px;
+    align-items: center;
+  }
+
+  .tag-marker {
+    min-height: 260px;
+    border: 1px solid rgba(26,35,51,0.18);
+    border-radius: 18px;
+    background: var(--ink);
+    color: #fff;
+    padding: 18px;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .fake-qr {
+    width: 116px;
+    height: 116px;
+    border: 8px solid #fff;
+    background:
+      linear-gradient(90deg, #111 25%, transparent 25% 50%, #111 50% 75%, transparent 75%),
+      linear-gradient(#111 25%, transparent 25% 50%, #111 50% 75%, transparent 75%);
+    background-size: 24px 24px;
+    background-color: #fff;
+  }
+
+  .tag-marker b {
+    font-size: 18px;
+    letter-spacing: 0.2em;
+  }
+
+  .access-flow {
+    display: grid;
+    gap: 12px;
+  }
+
+  .access-step {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 14px;
+    align-items: center;
+    padding: 14px;
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.94);
+  }
+
+  .access-step b {
+    color: var(--brand);
+    letter-spacing: 0.12em;
+  }
+
+  .access-step span {
+    color: var(--ink-2);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .memory-terms {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 26px;
+  }
+
+  .memory-term {
+    padding: 16px;
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    background: #fff;
+  }
+
+  .memory-term b {
+    display: block;
+    color: var(--ink);
+    margin-bottom: 7px;
+  }
+
+  .memory-term p {
+    color: var(--slate);
+    font-size: 13px;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .memory-compare {
+    background: var(--surface);
+    border-top: 1px solid var(--rule-soft);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .compare-card {
+    border: 1px solid var(--rule);
+    border-radius: 22px;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .compare-card header {
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .compare-card header span {
+    color: var(--slate);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .compare-card header h2 {
+    color: var(--ink);
+    font-size: 28px;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin-top: 8px;
+  }
+
+  .compare-card ul {
+    display: grid;
+    gap: 0;
+    list-style: none;
+  }
+
+  .compare-card li {
+    padding: 20px 28px;
+    color: var(--ink-2);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .compare-card li:last-child {
+    border-bottom: 0;
+  }
+
+  .compare-card.with-kodu header {
+    background: var(--brand-tint);
+  }
+
+  .memory-next-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 32px;
+    align-items: center;
+    padding: 40px;
+    border: 1px solid rgba(25,118,210,0.18);
+    border-radius: 24px;
+    background: var(--ink);
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .memory-next-card .we-section-eyebrow {
+    color: rgba(255,255,255,0.72);
+  }
+
+  .memory-next-card h2 {
+    color: #fff;
+    max-width: 720px;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    margin: 10px 0 12px;
+  }
+
+  .memory-next-card p {
+    color: rgba(255,255,255,0.76);
+    max-width: 660px;
+    margin: 0;
+  }
+
+  .memory-next-card .btn-neutral {
+    background: transparent;
+    border-color: rgba(255,255,255,0.36);
+    color: #fff;
+  }
+
+  @media (max-width: 1100px) {
+    .memory-hero .learn-hero-panel,
+    .video-placeholder-grid,
+    .anatomy-stage,
+    .memory-layer-grid,
+    .memory-layer-grid.reverse,
+    .compare-grid,
+    .memory-next-card {
+      grid-template-columns: 1fr;
+    }
+
+    .memory-hero .learn-hero-copy {
+      padding: 40px 40px 0;
+    }
+
+    .memory-layer-switch {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .memory-terms {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .memory-hero .learn-hero-copy {
+      padding: 30px 24px 0;
+    }
+
+    .memory-placeholder-art,
+    .convergence-art,
+    .video-poster,
+    .record-core-map,
+    .layer-panel,
+    .blueprint-art,
+    .vault-art,
+    .timeline-art,
+    .guidance-art,
+    .control-art {
+      min-height: 0;
+    }
+
+    .convergence-art {
+      height: 520px;
+    }
+
+    .memory-source-card {
+      width: 124px;
+      min-height: 82px;
+      padding: 12px;
+    }
+
+    .source-receipt { top: 32px; left: 22px; }
+    .source-warranty { top: 30px; right: 22px; }
+    .source-photo { bottom: 178px; left: 20px; }
+    .source-note { bottom: 168px; right: 20px; }
+
+    .memory-thread {
+      display: none;
+    }
+
+    .memory-core-card {
+      width: calc(100% - 44px);
+    }
+
+    .memory-core-layers {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .placeholder-caption dl {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+
+    .video-poster {
+      height: 420px;
+    }
+
+    .video-poster-inner {
+      inset: 22px;
+      grid-template-columns: 1fr;
+      align-items: center;
+    }
+
+    .video-play-ui {
+      justify-items: start;
+    }
+
+    .memory-layer-switch {
+      grid-template-columns: 1fr;
+    }
+
+    .record-core-map {
+      padding: 18px;
+    }
+
+    .record-layer {
+      grid-template-columns: 1fr auto;
+      gap: 8px 14px;
+    }
+
+    .record-layer p {
+      grid-column: 1 / -1;
+    }
+
+    .record-identity-rail,
+    .memory-terms {
+      grid-template-columns: 1fr;
+    }
+
+    .layer-panel {
+      padding: 24px;
+    }
+
+    .blueprint-art,
+    .vault-art,
+    .timeline-art,
+    .guidance-art,
+    .control-art {
+      height: 460px;
+    }
+
+    .guidance-art {
+      height: 640px;
+    }
+
+    .blueprint-panel,
+    .vault-card-stack,
+    .guidance-card-shell,
+    .control-card {
+      inset: 24px;
+    }
+
+    .vault-card-stack,
+    .guidance-card-shell,
+    .control-card {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline-strip {
+      grid-template-columns: 1fr;
+      gap: 22px;
+      top: 38px;
+      bottom: 38px;
+      transform: none;
+    }
+
+    .timeline-strip::before {
+      left: 32px;
+      right: auto;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      height: auto;
+    }
+
+    .timeline-node {
+      grid-template-columns: 66px 1fr;
+      justify-items: start;
+      text-align: left;
+      align-items: center;
+    }
+
+    .timeline-node b,
+    .timeline-node span {
+      grid-column: 2;
+    }
+
+    .tag-marker {
+      min-height: 190px;
+    }
+
+    .memory-next-card {
+      padding: 28px 24px;
+    }
+
+    .memory-next-card .cta-row,
+    .memory-next-card .btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "How Kodu creates your property\u2019s memory",
+  "description": "Learn how Kodu organizes a home's blueprint, proof, timeline, and guidance into one private homeowner-controlled property memory.",
+  "url": "https://kodurecord.com/learn/how-kodu-creates-your-property-memory/",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Kodu"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://kodurecord.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Learn",
+        "item": "https://kodurecord.com/learn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How Kodu creates your property\u2019s memory",
+        "item": "https://kodurecord.com/learn/how-kodu-creates-your-property-memory/"
+      }
+    ]
+  }
+}
+</script>
+</head>
+<body class="learn-page memory-page">
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../../index.html" aria-label="Kodu home">
+      <span class="nav-wordmark">Kodu <span class="accent">Record</span></span>
+    </a>
+
+    <div class="nav-prop" aria-disabled="true" title="Property selector - preview only">
+      <svg class="house" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 L12 4 L20 11 V20 H4 Z"/><line x1="9" y1="20" x2="9" y2="14"/><line x1="15" y1="20" x2="15" y2="14"/></svg>
+      <span>2707 Trotter Park Ln</span>
+      <svg class="caret" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+
+    <div class="nav-links">
+      <a href="../../index.html#overview">Overview</a>
+      <a href="../../index.html#vault">Blueprint</a>
+      <a href="../../index.html#systems">Systems</a>
+      <a href="../../index.html#timeline">Timeline</a>
+      <a href="../../index.html#transfer">Transfer</a>
+    </div>
+
+    <div class="nav-right">
+      <a href="../../request-access.html" class="btn btn-primary btn-sm">Request access</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="we-hero learn-hero memory-hero">
+    <div class="we-hero-inner">
+      <nav class="we-breadcrumb learn-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+        <span>Learn</span>
+        <svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+        <span>How Kodu creates your property&rsquo;s memory</span>
+      </nav>
+
+      <div class="learn-hero-panel">
+        <div class="learn-hero-copy">
+          <div class="we-eyebrow">Property Memory</div>
+          <h1 class="we-title">How Kodu creates your property&rsquo;s memory</h1>
+          <p class="we-sub">
+            Kodu gives the story of a home a private structure. The blueprint organizes the property, the vault stores the proof, the timeline shows what happened, and guidance helps homeowners understand what matters next.
+          </p>
+          <div class="cta-row">
+            <a href="/learn/inside-a-kodu-property-record/" class="btn btn-primary btn-lg">Explore inside a Kodu property record</a>
+            <a href="../../request-access.html" class="btn btn-neutral btn-lg">Request access</a>
+          </div>
+        </div>
+
+        <figure class="memory-placeholder memory-hero-visual" role="img" aria-label="Scattered home records becoming one private Kodu property memory.">
+          <div class="memory-placeholder-art convergence-art" aria-hidden="true">
+            <div class="memory-source-card source-receipt"><b>Receipt</b>Kitchen fixture install<span></span><span></span></div>
+            <div class="memory-source-card source-warranty"><b>Warranty</b>HVAC compressor<span></span><span></span></div>
+            <div class="memory-source-card source-photo"><b>Photo</b>Before repair image<span></span><span></span></div>
+            <div class="memory-source-card source-note"><b>Service note</b>Drainage follow-up<span></span><span></span></div>
+            <i class="memory-thread thread-1"></i>
+            <i class="memory-thread thread-2"></i>
+            <i class="memory-thread thread-3"></i>
+            <i class="memory-thread thread-4"></i>
+            <div class="memory-core-card">
+              <div class="memory-core-top">
+                <span>KPC-KB9E-RWWF-6G58</span>
+                <span>Private memory</span>
+              </div>
+              <div class="memory-core-body">
+                <small>Kodu property record</small>
+                <strong>One home story, finally in one place.</strong>
+                <p>Scattered proof becomes connected to the property it explains.</p>
+                <div class="memory-core-layers">
+                  <span>Blueprint</span>
+                  <span>Vault</span>
+                  <span>Timeline</span>
+                  <span>Guidance</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figcaption class="placeholder-caption">
+            <strong>Placeholder visual: property memory convergence</strong>
+            <dl>
+              <dt>Intended image description</dt>
+              <dd>Scattered receipts, photos, warranties, and service notes calmly converging into one private Kodu property record.</dd>
+              <dt>Mood</dt>
+              <dd>Warm, orderly, reassuring, like a confusing table becoming quiet.</dd>
+              <dt>Composition</dt>
+              <dd>Floating record fragments around a central Kodu property memory card with subtle connection lines.</dd>
+              <dt>Suggested asset filename</dt>
+              <dd>property-memory-convergence-hero.png</dd>
+              <dt>Alt text draft</dt>
+              <dd>Scattered home records becoming one private Kodu property memory.</dd>
+            </dl>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="we-section learn-section memory-video" aria-labelledby="memory-video-title">
+    <div class="we-section-inner video-placeholder-grid">
+        <figure class="memory-placeholder" role="img" aria-label="Video poster for How Kodu creates your property&rsquo;s memory.">
+        <div class="video-poster" aria-hidden="true">
+          <div class="video-poster-inner">
+            <div class="video-title-card">
+              <span>Video placeholder</span>
+              <h2 id="memory-video-title">How Kodu creates your property&rsquo;s memory</h2>
+              <p>A short walkthrough of how the blueprint, vault, timeline, guidance, and homeowner control work together.</p>
+            </div>
+            <div class="video-play-ui">
+              <div class="video-play-button">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="8 5 19 12 8 19"/></svg>
+              </div>
+              <div class="video-control-strip"><span></span></div>
+            </div>
+          </div>
+        </div>
+        <figcaption class="placeholder-caption">
+          <strong>Placeholder visual: video poster</strong>
+          <dl>
+            <dt>Intended image description</dt>
+            <dd>A warm product walkthrough poster showing a Kodu record gently divided into the five memory layers.</dd>
+            <dt>Mood</dt>
+            <dd>Calm explanation, premium, educational, not promotional.</dd>
+            <dt>Composition</dt>
+            <dd>Dark Kodu presentation frame with a central play control and faint layered record anatomy behind the title.</dd>
+            <dt>Suggested asset filename</dt>
+            <dd>how-kodu-property-memory-video-poster.png</dd>
+            <dt>Alt text draft</dt>
+            <dd>Video poster for How Kodu creates your property&rsquo;s memory.</dd>
+          </dl>
+        </figcaption>
+      </figure>
+
+      <aside class="video-side-copy">
+        <div class="we-section-eyebrow"><span class="num">Watch</span>Product model</div>
+        <h2>One private structure, built around the home.</h2>
+        <p>
+          This is the first chapter where Kodu becomes the answer. The point is not more places to put files. The point is a record that remembers the property in a way a homeowner can understand and control.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="we-section memory-anatomy-section" id="anatomy" aria-labelledby="anatomy-title">
+    <div class="we-section-inner memory-anatomy">
+      <div class="s-head-row">
+        <div>
+          <div class="we-section-eyebrow"><span class="num">01</span>Record anatomy</div>
+          <h2 class="we-section-title" id="anatomy-title">Kodu treats property memory as layers of one record.</h2>
+          <p class="we-section-sub">
+            Each layer has a different job, but none of them lives alone. The structure works because every detail stays connected to the property.
+          </p>
+        </div>
+      </div>
+
+      <input class="memory-layer-radio" type="radio" name="memory-layer" id="layer-blueprint" checked>
+      <input class="memory-layer-radio" type="radio" name="memory-layer" id="layer-vault">
+      <input class="memory-layer-radio" type="radio" name="memory-layer" id="layer-timeline">
+      <input class="memory-layer-radio" type="radio" name="memory-layer" id="layer-guidance">
+      <input class="memory-layer-radio" type="radio" name="memory-layer" id="layer-control">
+
+      <div class="memory-layer-switch" aria-label="Property memory layers">
+        <label for="layer-blueprint"><span>Blueprint</span></label>
+        <label for="layer-vault"><span>Vault</span></label>
+        <label for="layer-timeline"><span>Timeline</span></label>
+        <label for="layer-guidance"><span>Guidance</span></label>
+        <label for="layer-control"><span>Control</span></label>
+      </div>
+
+      <div class="anatomy-stage">
+        <div class="record-core-map" aria-label="A Kodu record anatomy model with blueprint, vault, timeline, guidance, and control layers.">
+          <div class="record-id-row">
+            <span>Kodu Property Code</span>
+            <strong>KPC-KB9E-RWWF-6G58</strong>
+          </div>
+          <div class="record-layer-stack">
+            <div class="record-layer">
+              <span>Blueprint</span>
+              <p>The stable map of the home, its spaces, systems, details, and identity.</p>
+              <b>01</b>
+            </div>
+            <div class="record-layer">
+              <span>Vault</span>
+              <p>The proof layer where documents, photos, receipts, warranties, and notes stay attached.</p>
+              <b>02</b>
+            </div>
+            <div class="record-layer">
+              <span>Timeline</span>
+              <p>The sequence of what happened, when it happened, and why it still matters.</p>
+              <b>03</b>
+            </div>
+            <div class="record-layer">
+              <span>Guidance</span>
+              <p>The homeowner-facing context that helps make the next decision feel clearer.</p>
+              <b>04</b>
+            </div>
+            <div class="record-layer">
+              <span>Control</span>
+              <p>The private access model that keeps the homeowner in charge of the memory.</p>
+              <b>05</b>
+            </div>
+          </div>
+          <div class="record-identity-rail" aria-hidden="true">
+            <span>KPC</span>
+            <span>KPT</span>
+            <span>Gateway</span>
+            <span>Review</span>
+            <span>Record</span>
+          </div>
+        </div>
+
+        <article class="layer-panel panel-blueprint">
+          <div class="we-section-eyebrow"><span class="num">Blueprint</span>Organizes the property</div>
+          <h3>The blueprint gives every part of the home a place.</h3>
+          <p>
+            Instead of treating the home like a loose folder, Kodu starts with the structure of the property itself. Rooms, systems, appliances, projects, documents, and photos can all connect back to the part of the home they explain.
+          </p>
+          <ul>
+            <li>Home details stay attached to the property, not a random file name.</li>
+            <li>Records can be understood by location, system, project, or time.</li>
+            <li>The homeowner gets a calmer way to see what the home contains.</li>
+          </ul>
+        </article>
+
+        <article class="layer-panel panel-vault">
+          <div class="we-section-eyebrow"><span class="num">Vault</span>Stores the proof</div>
+          <h3>The vault gives proof a place to live.</h3>
+          <p>
+            Receipts, warranties, photos, service notes, and documents become more useful when they are not separated from the property. The vault keeps proof close to the home detail, project, or timeline event it supports.
+          </p>
+          <ul>
+            <li>Proof is easier to find when a decision or question comes up.</li>
+            <li>Photos and documents keep their relationship to the home.</li>
+            <li>The record can explain what happened without relying on memory alone.</li>
+          </ul>
+        </article>
+
+        <article class="layer-panel panel-timeline">
+          <div class="we-section-eyebrow"><span class="num">Timeline</span>Tells the story</div>
+          <h3>The timeline shows how the home changed.</h3>
+          <p>
+            A property memory is not just a collection. It has sequence. The timeline helps a homeowner see repairs, replacements, projects, and updates as a story that unfolds over time.
+          </p>
+          <ul>
+            <li>Work no longer feels like disconnected moments.</li>
+            <li>Dates, reasons, photos, and proof can travel together.</li>
+            <li>A future handoff begins with context instead of guesswork.</li>
+          </ul>
+        </article>
+
+        <article class="layer-panel panel-guidance">
+          <div class="we-section-eyebrow"><span class="num">Guidance</span>Explains what matters</div>
+          <h3>Guidance turns stored information into homeowner context.</h3>
+          <p>
+            Kodu helps the record feel understandable. Guidance can point out what may need attention, what proof is helpful to keep, and what a homeowner may want to remember before the next repair, project, or transfer.
+          </p>
+          <ul>
+            <li>The record becomes easier to act on.</li>
+            <li>Homeowners can see gaps without feeling blamed.</li>
+            <li>Useful next steps stay tied to the property itself.</li>
+          </ul>
+        </article>
+
+        <article class="layer-panel panel-control">
+          <div class="we-section-eyebrow"><span class="num">Control</span>Homeowner approval</div>
+          <h3>The homeowner stays in charge of the record.</h3>
+          <p>
+            Kodu's contribution model is designed around permission. The Kodu Property Code identifies the property record, a Kodu Property Tag can point trusted people to the Kodu Gateway, and the homeowner reviews what becomes part of the permanent private memory.
+          </p>
+          <ul>
+            <li>A marker can open a contribution path without exposing the home record.</li>
+            <li>New information waits for homeowner review before it belongs.</li>
+            <li>The record grows through controlled additions, not open access.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="we-section learn-section" id="blueprint-layer" aria-labelledby="blueprint-title">
+    <div class="we-section-inner memory-layer-grid">
+      <div class="memory-layer-copy">
+        <div class="we-section-eyebrow"><span class="num">02</span>Blueprint layer</div>
+        <h2 class="we-section-title" id="blueprint-title">The blueprint organizes the property.</h2>
+        <p class="we-section-sub">
+          Kodu begins by giving the home a shape. The record can hold systems, spaces, appliances, projects, and details because it knows they belong to one property.
+        </p>
+        <p class="memory-copy">
+          This helps a homeowner stop asking, "Where did I put that?" and start asking, "Which part of the home does this explain?"
+        </p>
+        <ul class="memory-outcome-list">
+          <li><span>1</span><div>Home details are connected to rooms, systems, and projects.</div></li>
+          <li><span>2</span><div>The record feels like a map of the property, not a pile of uploads.</div></li>
+          <li><span>3</span><div>Future updates have a natural place to land.</div></li>
+        </ul>
+      </div>
+
+      <figure class="memory-placeholder" role="img" aria-label="Architectural blueprint panel showing a home's rooms, systems, and record sections.">
+        <div class="memory-placeholder-art blueprint-art" aria-hidden="true">
+          <div class="blueprint-panel">
+            <div class="blueprint-house"></div>
+            <span class="blueprint-label one">Systems</span>
+            <span class="blueprint-label two">Spaces</span>
+            <span class="blueprint-label three">Projects</span>
+          </div>
+        </div>
+        <figcaption class="placeholder-caption">
+          <strong>Placeholder visual: architectural blueprint panel</strong>
+          <dl>
+            <dt>Intended image description</dt>
+            <dd>A warm architectural blueprint panel mapping rooms, systems, and projects into one Kodu property structure.</dd>
+            <dt>Mood</dt>
+            <dd>Precise, calm, premium, homeowner-friendly.</dd>
+            <dt>Composition</dt>
+            <dd>Soft drafting grid with a simplified floor plan, labeled system zones, and a quiet Kodu record header.</dd>
+            <dt>Suggested asset filename</dt>
+            <dd>property-memory-blueprint-layer.png</dd>
+            <dt>Alt text draft</dt>
+            <dd>Architectural blueprint panel showing a home's rooms, systems, and record sections.</dd>
+          </dl>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="we-section learn-section" id="vault-layer" aria-labelledby="vault-title">
+    <div class="we-section-inner memory-layer-grid reverse">
+      <figure class="memory-placeholder" role="img" aria-label="Vault proof cards holding receipts, warranties, photos, and service records for a home.">
+        <div class="memory-placeholder-art vault-art" aria-hidden="true">
+          <div class="vault-card-stack">
+            <div class="vault-proof-card"><b>Receipt</b>Roof repair payment<span></span><span></span></div>
+            <div class="vault-proof-card"><b>Warranty</b>Water heater coverage<span></span><span></span></div>
+            <div class="vault-proof-card"><b>Photo</b>Before and after<span></span><span></span></div>
+            <div class="vault-proof-card"><b>Service record</b>Annual HVAC visit<span></span><span></span></div>
+          </div>
+          <div class="vault-lock">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10 V7 C8 4.8 9.8 3 12 3 C14.2 3 16 4.8 16 7 V10"/></svg>
+          </div>
+        </div>
+        <figcaption class="placeholder-caption">
+          <strong>Placeholder visual: vault proof card panel</strong>
+          <dl>
+            <dt>Intended image description</dt>
+            <dd>A set of proof cards for receipts, warranties, photos, and service records gathered into a private vault layer.</dd>
+            <dt>Mood</dt>
+            <dd>Secure, warm, uncluttered, protective.</dd>
+            <dt>Composition</dt>
+            <dd>Four layered proof cards around a soft central lock symbol, using Kodu's quiet record-card styling.</dd>
+            <dt>Suggested asset filename</dt>
+            <dd>property-memory-vault-proof-cards.png</dd>
+            <dt>Alt text draft</dt>
+            <dd>Vault proof cards holding receipts, warranties, photos, and service records for a home.</dd>
+          </dl>
+        </figcaption>
+      </figure>
+
+      <div class="memory-layer-copy">
+        <div class="we-section-eyebrow"><span class="num">03</span>Vault layer</div>
+        <h2 class="we-section-title" id="vault-title">The vault stores the proof.</h2>
+        <p class="we-section-sub">
+          The vault gives proof a place to live, so receipts, warranties, photos, and service records are not separated from the property.
+        </p>
+        <p class="memory-copy">
+          A document becomes more useful when it stays connected to the repair, system, project, or date it explains. Kodu is designed to preserve that relationship.
+        </p>
+        <ul class="memory-outcome-list">
+          <li><span>1</span><div>Proof stays close to the detail it supports.</div></li>
+          <li><span>2</span><div>Documents and photos are easier to understand later.</div></li>
+          <li><span>3</span><div>Warranty, service, and project questions can start with context.</div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="we-section learn-section" id="timeline-layer" aria-labelledby="timeline-layer-title">
+    <div class="we-section-inner memory-layer-grid">
+      <div class="memory-layer-copy">
+        <div class="we-section-eyebrow"><span class="num">04</span>Timeline layer</div>
+        <h2 class="we-section-title" id="timeline-layer-title">The timeline tells the story.</h2>
+        <p class="we-section-sub">
+          The timeline lets the home remember what happened in order: repairs, replacements, inspections, projects, and proof that belongs to each moment.
+        </p>
+        <p class="memory-copy">
+          A homeowner does not need a perfect history for the timeline to help. Even a few connected events can make future decisions clearer.
+        </p>
+        <ul class="memory-outcome-list">
+          <li><span>1</span><div>Repairs and projects become part of a continuous property story.</div></li>
+          <li><span>2</span><div>Photos, notes, and proof can travel with the event they explain.</div></li>
+          <li><span>3</span><div>A future owner can understand the care behind the home.</div></li>
+        </ul>
+      </div>
+
+      <figure class="memory-placeholder" role="img" aria-label="Timeline strip showing major home events connected to proof over time.">
+        <div class="memory-placeholder-art timeline-art" aria-hidden="true">
+          <div class="timeline-strip">
+            <div class="timeline-node"><i></i><b>Move-in</b><span>Record begins</span></div>
+            <div class="timeline-node"><i></i><b>Repair</b><span>Proof attached</span></div>
+            <div class="timeline-node"><i></i><b>Project</b><span>Photos saved</span></div>
+            <div class="timeline-node"><i></i><b>Service</b><span>Next step noted</span></div>
+          </div>
+        </div>
+        <figcaption class="placeholder-caption">
+          <strong>Placeholder visual: timeline strip</strong>
+          <dl>
+            <dt>Intended image description</dt>
+            <dd>A horizontal property timeline showing home events with proof, photos, and notes attached to each point.</dd>
+            <dt>Mood</dt>
+            <dd>Steady, continuous, understandable.</dd>
+            <dt>Composition</dt>
+            <dd>A warm timeline band with four dated events and subtle record cards tucked beneath each event.</dd>
+            <dt>Suggested asset filename</dt>
+            <dd>property-memory-timeline-strip.png</dd>
+            <dt>Alt text draft</dt>
+            <dd>Timeline strip showing major home events connected to proof over time.</dd>
+          </dl>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="we-section learn-section" id="guidance-layer" aria-labelledby="guidance-title">
+    <div class="we-section-inner memory-layer-grid reverse">
+      <figure class="memory-placeholder" role="img" aria-label="Guidance card explaining what a homeowner may want to review next.">
+        <div class="memory-placeholder-art guidance-art" aria-hidden="true">
+          <div class="guidance-card-shell">
+            <div class="guidance-main-card">
+              <small>Guidance</small>
+              <h3>What matters next</h3>
+              <p>Helpful context appears beside the record it explains.</p>
+              <div class="guidance-list">
+                <span>Save the warranty before it gets separated.</span>
+                <span>Attach the install photo to the project.</span>
+                <span>Review this before the next service visit.</span>
+              </div>
+            </div>
+            <div class="guidance-side-card">
+              <b>Record signal</b>
+              <span></span>
+              <span></span>
+              <span></span>
+              <b>Suggested proof</b>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+        <figcaption class="placeholder-caption">
+          <strong>Placeholder visual: guidance card</strong>
+          <dl>
+            <dt>Intended image description</dt>
+            <dd>A Kodu guidance card next to a property record, calmly surfacing what a homeowner should review or save next.</dd>
+            <dt>Mood</dt>
+            <dd>Helpful, quiet, non-judgmental, practical.</dd>
+            <dt>Composition</dt>
+            <dd>Large guidance card with two or three homeowner-facing suggestions and a small related proof panel.</dd>
+            <dt>Suggested asset filename</dt>
+            <dd>property-memory-guidance-card.png</dd>
+            <dt>Alt text draft</dt>
+            <dd>Guidance card explaining what a homeowner may want to review next.</dd>
+          </dl>
+        </figcaption>
+      </figure>
+
+      <div class="memory-layer-copy">
+        <div class="we-section-eyebrow"><span class="num">05</span>Guidance layer</div>
+        <h2 class="we-section-title" id="guidance-title">Guidance explains what matters.</h2>
+        <p class="we-section-sub">
+          Kodu is not just a place where information waits. It helps the homeowner understand which details may matter for care, planning, proof, and future handoff.
+        </p>
+        <p class="memory-copy">
+          Guidance should feel calm, not urgent. It gives the record a voice that helps a homeowner make sense of what is already there and what may be worth adding.
+        </p>
+        <ul class="memory-outcome-list">
+          <li><span>1</span><div>Helpful context appears beside the property detail it belongs to.</div></li>
+          <li><span>2</span><div>Gaps become easier to see without turning the record into a chore.</div></li>
+          <li><span>3</span><div>The homeowner can move from stored proof to a clearer next step.</div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="we-section learn-section" id="control-layer" aria-labelledby="control-title">
+    <div class="we-section-inner">
+      <div class="memory-layer-grid">
+        <div class="memory-layer-copy">
+          <div class="we-section-eyebrow"><span class="num">06</span>Privacy and control layer</div>
+          <h2 class="we-section-title" id="control-title">The homeowner stays in control.</h2>
+          <p class="we-section-sub">
+            Kodu's access model is built so the property can receive helpful contributions without giving up homeowner approval.
+          </p>
+          <p class="memory-copy">
+            A Kodu Property Code is the property&rsquo;s digital identity. A Kodu Property Tag is a physical access marker. The Kodu Gateway is the controlled contribution path. Review is the homeowner approval layer. The Record is the permanent private memory.
+          </p>
+          <ul class="memory-outcome-list">
+            <li><span>1</span><div>Trusted people can be pointed to the right contribution path.</div></li>
+            <li><span>2</span><div>The homeowner decides what is accepted into the record.</div></li>
+            <li><span>3</span><div>The property memory stays private, structured, and continuous.</div></li>
+          </ul>
+        </div>
+
+        <figure class="memory-placeholder" role="img" aria-label="Privacy and access card showing a Kodu Property Tag, Gateway, homeowner review, and private record.">
+          <div class="memory-placeholder-art control-art" aria-hidden="true">
+            <div class="control-card">
+              <div class="tag-marker">
+                <b>KODU</b>
+                <div class="fake-qr"></div>
+                <span>KPT access marker</span>
+              </div>
+              <div class="access-flow">
+                <div class="access-step"><b>KPC</b><span>Digital identity for the property record</span></div>
+                <div class="access-step"><b>Gateway</b><span>Controlled contribution path</span></div>
+                <div class="access-step"><b>Review</b><span>Homeowner approval layer</span></div>
+                <div class="access-step"><b>Record</b><span>Permanent private memory</span></div>
+              </div>
+            </div>
+          </div>
+          <figcaption class="placeholder-caption">
+            <strong>Placeholder visual: privacy and access card</strong>
+            <dl>
+              <dt>Intended image description</dt>
+              <dd>A privacy/access card showing the Kodu Property Code, Property Tag, Gateway, homeowner Review, and private Record flow.</dd>
+              <dt>Mood</dt>
+              <dd>Secure, controlled, simple, homeowner-led.</dd>
+              <dt>Composition</dt>
+              <dd>Left side shows a warm Kodu Property Tag marker; right side shows a clean four-step access flow into review and record.</dd>
+              <dt>Suggested asset filename</dt>
+              <dd>property-memory-privacy-access-card.png</dd>
+              <dt>Alt text draft</dt>
+              <dd>Privacy and access card showing a Kodu Property Tag, Gateway, homeowner review, and private record.</dd>
+            </dl>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="memory-terms" aria-label="Kodu property memory terms">
+        <article class="memory-term">
+          <b>KPC</b>
+          <p>Kodu Property Code, the digital property identity for the private record.</p>
+        </article>
+        <article class="memory-term">
+          <b>KPT</b>
+          <p>Kodu Property Tag, the physical property access marker.</p>
+        </article>
+        <article class="memory-term">
+          <b>Gateway</b>
+          <p>Kodu Gateway, the controlled path for authorized contributions.</p>
+        </article>
+        <article class="memory-term">
+          <b>Review</b>
+          <p>The homeowner approval layer before information joins the record.</p>
+        </article>
+        <article class="memory-term">
+          <b>Record</b>
+          <p>The permanent private memory that grows with the property.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="we-section memory-compare" id="before-with" aria-labelledby="compare-title">
+    <div class="we-section-inner">
+      <div class="s-head-row">
+        <div>
+          <div class="we-section-eyebrow"><span class="num">07</span>Before and with Kodu</div>
+          <h2 class="we-section-title" id="compare-title">The same home feels different when the record has structure.</h2>
+          <p class="we-section-sub">
+            Kodu does not make the home more complicated. It gives the home's existing story a clear place to live.
+          </p>
+        </div>
+      </div>
+
+      <div class="compare-grid">
+        <article class="compare-card">
+          <header>
+            <span>Before Kodu</span>
+            <h2>Scattered pieces</h2>
+          </header>
+          <ul>
+            <li>Receipts, photos, warranties, notes, and documents sit in different places.</li>
+            <li>A repair may be remembered, but the reason and proof can be hard to find.</li>
+            <li>Helpful details from trusted people can arrive without a clear place to land.</li>
+            <li>The homeowner has to rebuild the story when a question comes up.</li>
+          </ul>
+        </article>
+
+        <article class="compare-card with-kodu">
+          <header>
+            <span>With Kodu</span>
+            <h2>Private property memory</h2>
+          </header>
+          <ul>
+            <li>The blueprint gives every part of the home a place in the record.</li>
+            <li>The vault keeps proof connected to the event, project, or system it explains.</li>
+            <li>The timeline shows how the home changed, without relying on memory alone.</li>
+            <li>The homeowner reviews what gets added and keeps the record under control.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="we-section learn-section" id="next-chapter" aria-labelledby="next-title">
+    <div class="we-section-inner">
+      <article class="memory-next-card">
+        <div>
+          <div class="we-section-eyebrow"><span class="num">Next</span>Foundation page 5</div>
+          <h2 id="next-title">Explore inside a Kodu property record.</h2>
+          <p>
+            Now that the structure is clear, the next chapter shows what a homeowner sees inside the record itself.
+          </p>
+        </div>
+        <div class="cta-row">
+          <a href="/learn/inside-a-kodu-property-record/" class="btn btn-primary btn-lg">Explore inside a Kodu property record</a>
+          <a href="../../request-access.html" class="btn btn-neutral btn-lg">Request access</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="learn-related">
+    <div class="we-section-inner learn-related-inner">
+      <h2>Foundation learning path</h2>
+      <div class="learn-related-links">
+        <a href="../what-is-a-home-property-record/">What is a home property record?</a>
+        <a href="../every-home-has-a-story/">Every home has a story</a>
+        <a href="../why-homeowners-lose-property-history/">Why homeowners lose property history</a>
+        <a href="/learn/inside-a-kodu-property-record/">Inside a Kodu property record</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="nav-wordmark">Kodu <span class="accent">Record</span></span>
+      <p class="foot-statement">The working record of your home &mdash; private to the owner, continuous across owners, built to preserve the property&rsquo;s history over time.</p>
+    </div>
+
+    <div class="foot-col">
+      <h4>Record</h4>
+      <ul>
+        <li><a href="../../index.html#vault">Blueprint</a></li>
+        <li><a href="../../index.html#vault">Vault</a></li>
+        <li><a href="../../index.html#systems">Systems</a></li>
+        <li><a href="../../index.html#timeline">Timeline</a></li>
+        <li><a href="../../index.html#transfer">Transfer</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="../../working-example.html">Sample property record</a></li>
+        <li><a href="../../request-access.html">Request access</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Built for</h4>
+      <ul>
+        <li><a href="../../request-access.html">New homeowners</a></li>
+        <li><a href="../../request-access.html">Long-term owners</a></li>
+        <li><a href="../../request-access.html">Inherited homes</a></li>
+        <li><a href="../../request-access.html">Owners selling soon</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Kodu</h4>
+      <ul>
+        <li><a href="mailto:hello@kodurecord.com">Contact</a></li>
+        <li><a href="../../request-access.html">Request access</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot-base">
+    <div>&copy; Kodu, Inc. &middot; 2026</div>
+    <div class="foot-base-links">
+      <a href="mailto:hello@kodurecord.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../../analytics.js"></script>
+</body>
+</html>

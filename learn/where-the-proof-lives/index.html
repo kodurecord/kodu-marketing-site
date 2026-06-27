@@ -1,0 +1,1166 @@
+<!--
+  Kodu - learn/where-the-proof-lives/index.html
+  Learn Page 5: Vault, where the proof lives
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vault: Where the Proof Lives | Kodu</title>
+<meta name="description" content="Learn how Kodu's Vault keeps proof connected to the home, so warranties, receipts, inspections, project history, and photos stay attached to the private property record." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css">
+
+<style>
+  .vault-page main {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.86), rgba(241,243,247,0.98) 560px),
+      var(--bg);
+  }
+
+  .vault-page .btn {
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.25;
+    text-align: center;
+  }
+
+  .learn-site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.94);
+    border-bottom: 1px solid var(--rule-soft);
+    backdrop-filter: blur(14px) saturate(150%);
+    -webkit-backdrop-filter: blur(14px) saturate(150%);
+  }
+
+  .learn-site-header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+  }
+
+  .learn-site-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 24px;
+  }
+
+  .learn-site-links a:not(.btn) {
+    color: var(--slate);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .learn-site-links a:not(.btn):hover {
+    color: var(--ink);
+  }
+
+  .vault-hero {
+    padding: 64px 32px 48px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .vault-hero-inner,
+  .vault-section-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .vault-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.86fr) minmax(520px, 1.14fr);
+    gap: 56px;
+    align-items: center;
+    margin-top: 44px;
+  }
+
+  .vault-hero-copy {
+    max-width: 650px;
+  }
+
+  .vault-hero-copy .we-eyebrow {
+    margin-bottom: 20px;
+  }
+
+  .vault-hero-copy h1 {
+    color: var(--ink);
+    font-size: clamp(48px, 7vw, 84px);
+    line-height: 0.96;
+    letter-spacing: -0.045em;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  .vault-subheadline {
+    color: var(--ink-2);
+    font-size: 20px;
+    line-height: 1.62;
+    max-width: 640px;
+    margin: 0 0 18px;
+  }
+
+  .vault-intro {
+    color: var(--slate);
+    font-size: 17px;
+    line-height: 1.75;
+    max-width: 640px;
+    margin: 0 0 30px;
+  }
+
+  .vault-card {
+    border: 1px solid var(--rule);
+    border-radius: 24px;
+    background: rgba(255,255,255,0.94);
+    box-shadow: 0 18px 42px rgba(26,35,51,0.08);
+  }
+
+  .vault-fragment {
+    position: relative;
+    overflow: hidden;
+    min-height: 510px;
+    padding: 28px;
+    background:
+      linear-gradient(rgba(90,100,120,0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(90,100,120,0.055) 1px, transparent 1px),
+      #f4f7fb;
+    background-size: 30px 30px;
+  }
+
+  .fragment-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 11px;
+    border: 1px solid rgba(25,118,210,0.18);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.84);
+    color: var(--brand);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .fragment-label::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: currentColor;
+  }
+
+  .receipt-detail {
+    position: absolute;
+    left: 34px;
+    top: 86px;
+    width: min(350px, calc(100% - 68px));
+    border: 1px solid var(--rule);
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 16px 34px rgba(26,35,51,0.09);
+    overflow: hidden;
+  }
+
+  .receipt-detail header {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 20px;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .receipt-detail small,
+  .connection-panel small,
+  .vault-sample-card small {
+    display: block;
+    color: var(--brand);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+
+  .receipt-detail strong {
+    color: var(--ink);
+    font-size: 21px;
+    line-height: 1.16;
+    letter-spacing: -0.02em;
+  }
+
+  .receipt-date {
+    align-self: start;
+    padding: 7px 9px;
+    border-radius: 999px;
+    background: var(--brand-tint);
+    color: var(--brand);
+    font-size: 12px;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  .receipt-body {
+    padding: 20px;
+    display: grid;
+    gap: 12px;
+  }
+
+  .receipt-row {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 12px;
+    color: var(--slate);
+    font-size: 13px;
+  }
+
+  .receipt-row b {
+    color: var(--ink-2);
+  }
+
+  .receipt-lines {
+    display: grid;
+    gap: 8px;
+    padding-top: 8px;
+  }
+
+  .receipt-lines span {
+    display: block;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--rule);
+  }
+
+  .receipt-lines span:nth-child(1) { width: 92%; }
+  .receipt-lines span:nth-child(2) { width: 74%; }
+  .receipt-lines span:nth-child(3) { width: 58%; }
+
+  .connection-panel {
+    position: absolute;
+    right: 34px;
+    top: 128px;
+    width: 260px;
+    padding: 20px;
+    border: 1px solid var(--rule);
+    border-radius: 20px;
+    background: rgba(255,255,255,0.96);
+    box-shadow: 0 16px 34px rgba(26,35,51,0.08);
+  }
+
+  .connection-panel h2 {
+    color: var(--ink);
+    font-size: 22px;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .connection-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .connection-list span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 40px;
+    padding: 10px 12px;
+    border: 1px solid var(--rule-soft);
+    border-radius: 12px;
+    background: var(--bg);
+    color: var(--ink-2);
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .connection-list span::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: var(--brand);
+  }
+
+  .fragment-thread {
+    position: absolute;
+    left: 380px;
+    top: 254px;
+    width: 128px;
+    height: 1px;
+    background: rgba(25,118,210,0.28);
+  }
+
+  .fragment-thread::before,
+  .fragment-thread::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: var(--brand);
+  }
+
+  .fragment-thread::before { left: -1px; }
+  .fragment-thread::after { right: -1px; }
+
+  .fragment-note {
+    position: absolute;
+    left: 34px;
+    right: 34px;
+    bottom: 28px;
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 14px;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid rgba(25,118,210,0.16);
+    border-radius: 16px;
+    background: rgba(255,255,255,0.9);
+    color: var(--slate);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .fragment-note b {
+    color: var(--ink);
+  }
+
+  .fragment-note-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: var(--brand-tint);
+    color: var(--brand);
+  }
+
+  .fragment-note-icon svg {
+    width: 23px;
+    height: 23px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+  }
+
+  .vault-section {
+    position: relative;
+    z-index: 2;
+    padding: 58px 32px;
+  }
+
+  .vault-section-head {
+    display: grid;
+    grid-template-columns: minmax(0, 0.86fr) minmax(320px, 0.52fr);
+    gap: 34px;
+    align-items: end;
+    margin-bottom: 30px;
+  }
+
+  .vault-section-head h2 {
+    color: var(--ink);
+    font-size: clamp(32px, 5vw, 58px);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    margin-top: 10px;
+  }
+
+  .vault-section-head p {
+    color: var(--slate);
+    font-size: 16px;
+    line-height: 1.72;
+    margin: 0;
+  }
+
+  .proof-flow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    position: relative;
+  }
+
+  .proof-flow::before {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: 42px;
+    height: 1px;
+    background: rgba(25,118,210,0.18);
+  }
+
+  .proof-step {
+    position: relative;
+    padding: 24px;
+    min-height: 250px;
+    border: 1px solid var(--rule);
+    border-radius: 20px;
+    background: rgba(255,255,255,0.94);
+    box-shadow: 0 10px 24px rgba(26,35,51,0.05);
+  }
+
+  .proof-step-number {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    background: var(--brand);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 32px;
+  }
+
+  .proof-step h3 {
+    color: var(--ink);
+    font-size: 21px;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .proof-step p {
+    color: var(--slate);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .vault-category-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .vault-category {
+    min-height: 168px;
+    padding: 18px;
+    border: 1px solid var(--rule);
+    border-radius: 18px;
+    background: rgba(255,255,255,0.94);
+    box-shadow: 0 10px 22px rgba(26,35,51,0.04);
+  }
+
+  .vault-category span {
+    display: inline-flex;
+    min-height: 28px;
+    align-items: center;
+    padding: 5px 8px;
+    border-radius: 999px;
+    background: var(--brand-tint);
+    color: var(--brand);
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+
+  .vault-category h3 {
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.22;
+    margin-bottom: 9px;
+  }
+
+  .vault-category p {
+    color: var(--slate);
+    font-size: 13px;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .vault-sample-wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 0.5fr) minmax(560px, 1fr);
+    gap: 34px;
+    align-items: center;
+  }
+
+  .vault-sample-copy h2 {
+    color: var(--ink);
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.06;
+    letter-spacing: -0.035em;
+    margin: 10px 0 18px;
+  }
+
+  .vault-sample-copy p {
+    color: var(--slate);
+    font-size: 16px;
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  .vault-sample-surface {
+    padding: 24px;
+    border: 1px solid var(--rule);
+    border-radius: 24px;
+    background:
+      linear-gradient(rgba(90,100,120,0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(90,100,120,0.055) 1px, transparent 1px),
+      #eef3f8;
+    background-size: 30px 30px;
+  }
+
+  .vault-sample-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 250px;
+    gap: 18px;
+    padding: 18px;
+    border: 1px solid var(--rule);
+    border-radius: 22px;
+    background: rgba(255,255,255,0.96);
+    box-shadow: 0 16px 34px rgba(26,35,51,0.08);
+  }
+
+  .sample-document-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .sample-document-row {
+    display: grid;
+    grid-template-columns: 42px 1fr auto;
+    gap: 12px;
+    align-items: center;
+    padding: 13px;
+    border: 1px solid var(--rule-soft);
+    border-radius: 14px;
+    background: #fff;
+  }
+
+  .sample-document-row.active {
+    border-color: rgba(25,118,210,0.28);
+    background: var(--brand-tint);
+  }
+
+  .sample-doc-icon {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(25,118,210,0.24);
+    border-radius: 11px;
+    background:
+      linear-gradient(135deg, transparent 0 70%, rgba(25,118,210,0.18) 70% 100%),
+      #fff;
+  }
+
+  .sample-document-row h3 {
+    color: var(--ink);
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .sample-document-row p {
+    color: var(--slate);
+    font-size: 12px;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .sample-document-row time,
+  .sample-document-row .sample-tag {
+    color: var(--brand);
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  .sample-connected-panel {
+    padding: 16px;
+    border: 1px solid var(--rule-soft);
+    border-radius: 18px;
+    background: var(--bg);
+  }
+
+  .sample-connected-panel h3 {
+    color: var(--ink);
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  .connected-chip-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .connected-chip-list span {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: #fff;
+    color: var(--ink-2);
+    font-size: 13px;
+    font-weight: 800;
+    border: 1px solid var(--rule-soft);
+  }
+
+  .connected-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+    color: var(--slate);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .vault-bottom {
+    padding-top: 0;
+  }
+
+  .vault-bottom-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 30px;
+    align-items: center;
+    padding: 38px;
+    border: 1px solid rgba(25,118,210,0.18);
+    border-radius: 26px;
+    background: var(--ink);
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .vault-bottom-card h2 {
+    color: #fff;
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    margin-bottom: 14px;
+  }
+
+  .vault-bottom-card p {
+    color: rgba(255,255,255,0.76);
+    font-size: 16px;
+    line-height: 1.68;
+    max-width: 760px;
+    margin: 0;
+  }
+
+  .vault-bottom-card .btn-neutral {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,0.34);
+  }
+
+  @media (max-width: 1180px) {
+    .vault-category-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (max-width: 1060px) {
+    .vault-hero-grid,
+    .vault-section-head,
+    .vault-sample-wrap,
+    .vault-bottom-card {
+      grid-template-columns: 1fr;
+    }
+
+    .vault-hero-copy,
+    .vault-sample-copy {
+      max-width: 780px;
+    }
+
+    .vault-fragment {
+      min-height: 620px;
+    }
+
+    .fragment-thread {
+      display: none;
+    }
+
+    .proof-flow {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .proof-flow::before {
+      display: none;
+    }
+
+    .vault-sample-card {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .learn-site-header-inner,
+    .vault-hero,
+    .vault-section {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .learn-site-header-inner {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .learn-site-links {
+      width: 100%;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .vault-hero {
+      padding-top: 48px;
+    }
+
+    .vault-hero-grid {
+      gap: 28px;
+      margin-top: 30px;
+    }
+
+    .vault-hero-copy h1 {
+      font-size: clamp(42px, 13vw, 58px);
+    }
+
+    .vault-subheadline {
+      font-size: 17px;
+    }
+
+    .vault-intro {
+      font-size: 16px;
+    }
+
+    .vault-fragment {
+      min-height: 820px;
+      padding: 18px;
+    }
+
+    .receipt-detail,
+    .connection-panel,
+    .fragment-note {
+      position: relative;
+      left: auto;
+      right: auto;
+      top: auto;
+      bottom: auto;
+      width: auto;
+      margin-top: 18px;
+    }
+
+    .fragment-note {
+      grid-template-columns: 1fr;
+    }
+
+    .proof-flow,
+    .vault-category-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .proof-step {
+      min-height: 0;
+    }
+
+    .proof-step-number {
+      margin-bottom: 20px;
+    }
+
+    .vault-sample-surface {
+      padding: 16px;
+    }
+
+    .vault-sample-card {
+      padding: 14px;
+    }
+
+    .sample-document-row {
+      grid-template-columns: 36px 1fr;
+      align-items: start;
+    }
+
+    .sample-document-row time,
+    .sample-document-row .sample-tag {
+      grid-column: 2;
+    }
+
+    .sample-doc-icon {
+      width: 36px;
+      height: 36px;
+    }
+
+    .vault-bottom-card {
+      padding: 28px 24px;
+    }
+
+    .vault-bottom-card .cta-row,
+    .vault-bottom-card .btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Vault: Where the proof lives",
+  "description": "Learn how Kodu's Vault keeps proof connected to the home, so warranties, receipts, inspections, project history, and photos stay attached to the private property record.",
+  "url": "https://kodurecord.com/learn/where-the-proof-lives/",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Kodu"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://kodurecord.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Learn",
+        "item": "https://kodurecord.com/learn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Vault: Where the proof lives",
+        "item": "https://kodurecord.com/learn/where-the-proof-lives/"
+      }
+    ]
+  }
+}
+</script>
+</head>
+<body class="learn-page vault-page">
+
+<header class="learn-site-header">
+  <div class="learn-site-header-inner">
+    <a class="nav-brand" href="../../index.html" aria-label="Kodu home">
+      <span class="nav-wordmark">Kodu <span class="accent">Record</span></span>
+    </a>
+
+    <nav class="learn-site-links" aria-label="Learn navigation">
+      <a href="../what-is-a-home-property-record/">Learn</a>
+      <a href="../../working-example.html">Sample Record</a>
+      <a href="../../request-access.html" class="btn btn-primary btn-sm">Request access</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="vault-hero" aria-labelledby="vault-title">
+    <div class="vault-hero-inner">
+      <nav class="we-breadcrumb learn-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../index.html">Home</a>
+        <svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+        <span>Learn</span>
+        <svg viewBox="0 0 12 12" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+        <span>Where the proof lives</span>
+      </nav>
+
+      <div class="vault-hero-grid">
+        <div class="vault-hero-copy">
+          <div class="we-eyebrow">VAULT LAYER</div>
+          <h1 id="vault-title">Where the proof lives.</h1>
+          <p class="vault-subheadline">
+            The Vault keeps proof connected to the home.
+          </p>
+          <p class="vault-intro">
+            Kodu keeps important property documents, photos, warranties, receipts, inspections, and project records attached to the home they belong to, so the homeowner can find the proof when it matters.
+          </p>
+          <div class="cta-row">
+            <a href="../../working-example.html" class="btn btn-primary btn-lg">View sample record</a>
+            <a href="../../request-access.html" class="btn btn-neutral btn-lg">Request access</a>
+          </div>
+        </div>
+
+        <figure class="vault-card vault-fragment" role="img" aria-label="Cropped Kodu Vault product fragment showing an HVAC service receipt connected to Systems, Timeline, Vault, and Guidance.">
+          <span class="fragment-label">Product fragment</span>
+
+          <article class="receipt-detail">
+            <header>
+              <div>
+                <small>Uploaded record</small>
+                <strong>HVAC service receipt</strong>
+              </div>
+              <span class="receipt-date">Jun 12</span>
+            </header>
+            <div class="receipt-body">
+              <div class="receipt-row"><b>System</b><span>HVAC</span></div>
+              <div class="receipt-row"><b>Area</b><span>Utility / all zones</span></div>
+              <div class="receipt-row"><b>Proof</b><span>Annual service and filter replacement</span></div>
+              <div class="receipt-lines" aria-hidden="true"><span></span><span></span><span></span></div>
+            </div>
+          </article>
+
+          <i class="fragment-thread" aria-hidden="true"></i>
+
+          <aside class="connection-panel">
+            <small>Connected to</small>
+            <h2>One document, several places it matters.</h2>
+            <div class="connection-list">
+              <span>Systems: HVAC</span>
+              <span>Timeline: service event</span>
+              <span>Vault: receipt proof</span>
+              <span>Guidance: next service context</span>
+            </div>
+          </aside>
+
+          <figcaption class="fragment-note">
+            <span class="fragment-note-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3 H14 L19 8 V21 H6 Z"/><polyline points="14 3 14 8 19 8"/><path d="M9 13 H16"/><path d="M9 17 H14"/></svg>
+            </span>
+            <span><b>A receipt is more useful when it is attached to the system, project, or timeline event it explains.</b> That is the difference between proof in a record and proof that has to be rediscovered later.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="vault-section" id="proof-in-context" aria-labelledby="proof-context-title">
+    <div class="vault-section-inner">
+      <div class="vault-section-head">
+        <div>
+          <div class="we-section-eyebrow"><span class="num">01</span>Proof in context</div>
+          <h2 id="proof-context-title">How one document becomes useful.</h2>
+        </div>
+        <p>
+          Kodu helps the homeowner know where the proof lives before something breaks, gets questioned, or needs to transfer.
+        </p>
+      </div>
+
+      <div class="proof-flow" aria-label="How proof moves through the property record">
+        <article class="proof-step">
+          <span class="proof-step-number">1</span>
+          <h3>Uploaded record</h3>
+          <p>A receipt, warranty, inspection, manual, note, or photo is captured as proof inside the private record.</p>
+        </article>
+
+        <article class="proof-step">
+          <span class="proof-step-number">2</span>
+          <h3>Attached to the home</h3>
+          <p>The record connects to the system, project, room, area, or property detail it helps explain.</p>
+        </article>
+
+        <article class="proof-step">
+          <span class="proof-step-number">3</span>
+          <h3>Appears in the timeline</h3>
+          <p>When the proof belongs to work that happened, it can support the property memory as an event.</p>
+        </article>
+
+        <article class="proof-step">
+          <span class="proof-step-number">4</span>
+          <h3>Supports what comes next</h3>
+          <p>The same proof can inform guidance, future service, project history, insurance questions, or transfer.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="vault-section" id="vault-organization" aria-labelledby="vault-organization-title">
+    <div class="vault-section-inner">
+      <div class="vault-section-head">
+        <div>
+          <div class="we-section-eyebrow"><span class="num">02</span>Record organization</div>
+          <h2 id="vault-organization-title">Vault categories are ways proof stays connected.</h2>
+        </div>
+        <p>
+          These are not page tabs pretending to be the app. They are the organizing ideas a homeowner can use to understand where evidence belongs in the property memory.
+        </p>
+      </div>
+
+      <div class="vault-category-grid" aria-label="Vault organization categories">
+        <article class="vault-category">
+          <span>Interior</span>
+          <h3>Rooms and inside work</h3>
+          <p>Paint records, fixture receipts, appliance notes, and interior project history.</p>
+        </article>
+
+        <article class="vault-category">
+          <span>Exterior</span>
+          <h3>Outside systems</h3>
+          <p>Roof, siding, gutters, windows, drainage, doors, decks, and exterior repairs.</p>
+        </article>
+
+        <article class="vault-category">
+          <span>Utility</span>
+          <h3>Core home systems</h3>
+          <p>HVAC, electrical, plumbing, water supply, gas, security, and related service proof.</p>
+        </article>
+
+        <article class="vault-category">
+          <span>Projects</span>
+          <h3>What changed</h3>
+          <p>Before and after proof, budgets, decisions, permits, invoices, and completion notes.</p>
+        </article>
+
+        <article class="vault-category">
+          <span>Documents</span>
+          <h3>Important records</h3>
+          <p>Manuals, inspections, permits, disclosures, and other records that explain the home.</p>
+        </article>
+
+        <article class="vault-category">
+          <span>Photos</span>
+          <h3>Visual proof</h3>
+          <p>Condition photos, progress photos, issue photos, and evidence tied to time and place.</p>
+        </article>
+
+        <article class="vault-category">
+          <span>Insurance / warranty</span>
+          <h3>Coverage proof</h3>
+          <p>Policies, warranties, claim-related details, and proof a homeowner may need later.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="vault-section" id="product-sample" aria-labelledby="product-sample-title">
+    <div class="vault-section-inner vault-sample-wrap">
+      <div class="vault-sample-copy">
+        <div class="we-section-eyebrow"><span class="num">03</span>Vault detail</div>
+        <h2 id="product-sample-title">A cropped product detail, not a whole app screen.</h2>
+        <p>
+          A public learn page should show enough of the product to make the idea clear. Here, a small Vault-style detail shows how documents can sit beside the record connections that give them meaning.
+        </p>
+      </div>
+
+      <div class="vault-sample-surface" aria-label="Vault-style product detail sample">
+        <article class="vault-sample-card">
+          <div>
+            <small>Vault detail fragment</small>
+            <div class="sample-document-list">
+              <article class="sample-document-row active">
+                <span class="sample-doc-icon" aria-hidden="true"></span>
+                <div>
+                  <h3>HVAC service receipt</h3>
+                  <p>Annual maintenance, filter replacement, service notes.</p>
+                </div>
+                <time>Jun 12</time>
+              </article>
+
+              <article class="sample-document-row">
+                <span class="sample-doc-icon" aria-hidden="true"></span>
+                <div>
+                  <h3>Inspection report</h3>
+                  <p>Condition findings connected to utility systems.</p>
+                </div>
+                <span class="sample-tag">PDF</span>
+              </article>
+
+              <article class="sample-document-row">
+                <span class="sample-doc-icon" aria-hidden="true"></span>
+                <div>
+                  <h3>Before photo</h3>
+                  <p>Visual proof before the service work was completed.</p>
+                </div>
+                <span class="sample-tag">Photo</span>
+              </article>
+            </div>
+          </div>
+
+          <aside class="sample-connected-panel">
+            <small>Connected to</small>
+            <h3>HVAC service receipt</h3>
+            <div class="connected-chip-list">
+              <span>Utility / HVAC</span>
+              <span>All zones</span>
+              <span>Timeline event</span>
+              <span>Future service guidance</span>
+            </div>
+            <p class="connected-note">
+              The document is not isolated. It helps explain the system, the service history, and the next moment when the homeowner needs proof.
+            </p>
+          </aside>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="vault-section vault-bottom" aria-labelledby="vault-bottom-title">
+    <div class="vault-section-inner">
+      <article class="vault-bottom-card">
+        <div>
+          <h2 id="vault-bottom-title">The Vault is not storage. It is evidence attached to the property.</h2>
+          <p>
+            The Vault supports the Blueprint, Systems, Timeline, Guidance, and future Transfer. It helps the homeowner keep proof where the property can use it.
+          </p>
+        </div>
+        <div class="cta-row">
+          <a href="../../working-example.html" class="btn btn-primary btn-lg">View sample record</a>
+          <a href="../../request-access.html" class="btn btn-neutral btn-lg">Request access</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="nav-wordmark">Kodu <span class="accent">Record</span></span>
+      <p class="foot-statement">The working record of your home &mdash; private to the owner, continuous across owners, built to preserve the property&rsquo;s history over time.</p>
+    </div>
+
+    <div class="foot-col">
+      <h4>Record</h4>
+      <ul>
+        <li><a href="../../index.html#vault">Blueprint</a></li>
+        <li><a href="../../index.html#vault">Vault</a></li>
+        <li><a href="../../index.html#systems">Systems</a></li>
+        <li><a href="../../index.html#timeline">Timeline</a></li>
+        <li><a href="../../index.html#transfer">Transfer</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="../../working-example.html">Sample property record</a></li>
+        <li><a href="../../request-access.html">Request access</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Built for</h4>
+      <ul>
+        <li><a href="../../request-access.html">New homeowners</a></li>
+        <li><a href="../../request-access.html">Long-term owners</a></li>
+        <li><a href="../../request-access.html">Inherited homes</a></li>
+        <li><a href="../../request-access.html">Owners selling soon</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Kodu</h4>
+      <ul>
+        <li><a href="mailto:hello@kodurecord.com">Contact</a></li>
+        <li><a href="../../request-access.html">Request access</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot-base">
+    <div>&copy; Kodu, Inc. &middot; 2026</div>
+    <div class="foot-base-links">
+      <a href="mailto:hello@kodurecord.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../../analytics.js"></script>
+</body>
+</html>
